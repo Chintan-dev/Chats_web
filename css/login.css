@@ -1,0 +1,192 @@
+/* Login & Signup Form CSS Start */
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* * {
+    transition: 1s;
+} */
+
+.signup {
+    /* display: none; */
+}
+
+.login {
+    /* display: none; */
+}
+
+.loginpage {
+    /* max-width: 950px;
+    min-width: 360px;
+    width: 100%; */
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: row;
+    border-radius: 20px;
+}
+
+.form {
+    padding: 25px 30px;
+}
+
+.form header {
+    font-size: 25px;
+    font-weight: 600;
+    padding-bottom: 10px;
+    justify-content: space-between;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.form form {
+    margin: 20px 0;
+}
+
+.form form .error-text {
+    color: #721c24;
+    padding: 8px 10px;
+    text-align: center;
+    border-radius: 5px;
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    margin-bottom: 10px;
+    display: none;
+}
+
+.form form .name-details {
+    display: flex;
+}
+
+.form .name-details .field:first-child {
+    margin-right: 10px;
+}
+
+.form .name-details .field:last-child {
+    margin-left: 10px;
+}
+
+.form form .field {
+    display: flex;
+    margin-bottom: 10px;
+    flex-direction: column;
+    position: relative;
+}
+
+.form form .field label {
+    margin-bottom: 2px;
+}
+
+.form form .input input {
+    height: 40px;
+    width: 100%;
+    font-size: 16px;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.form form .field input {
+    outline: none;
+}
+
+.image {
+    display: flex;
+    flex-direction: column;
+}
+
+.form form .image input {
+    font-size: 17px;
+}
+
+.form form .button input {
+    height: 45px;
+    border: none;
+    color: #fff;
+    font-size: 17px;
+    background: #333;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 13px;
+}
+
+.signup .input {
+    height: 50px;
+}
+
+.form form .field i {
+    position: absolute;
+    right: 15px;
+    top: 70%;
+    color: #ccc;
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+
+.form form .field i.active::before {
+    color: #333;
+    content: "\f070";
+}
+
+.form .link {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 17px;
+}
+
+.form .link a {
+    color: var(--main-text)
+}
+
+.form .link a:hover {
+    text-decoration: underline;
+}
+
+.form form .field.gender {
+    display: flex;
+    margin-bottom: 5px;
+    flex-direction: row;
+    position: relative;
+}
+
+.form form .field.gender input {
+    width: 20px;
+    margin: 3px 4px 0 11px;
+}
+
+.imgboxfrom1,
+.imgboxfrom2 {
+    max-width: 300px;
+    width: 100%;
+    height: 100%;
+}
+
+#login_img {
+    border-radius: 20px 0 0 20px;
+}
+
+#signup_img {
+    border-radius: 0 20px 20px 0;
+}
+
+.imgboxfrom1 {
+    display: none;
+}
+
+section,
+.imgboxfrom1,
+.imgboxfrom2 {
+    transition: 0.23s;
+    transform: translate(1s);
+}
+
+
+/* .login {
+    display: none;
+} */
+
+#signup_section {
+    display: none;
+}
