@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -144,7 +145,6 @@ a {
     max-width: 370px;
     width: 100%;
     height: 45px;
-    margin-top: 7px;
     padding: 0 20px;
     background-color: var(--header_box_c);
     border-radius: 20px;
@@ -225,4 +225,48 @@ a {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--scroll_color);
+}
+
+@media (max-width:700px) {
+
+    /* .form>header, */
+    .container>header {
+        margin: 0px;
+        display: flex;
+        border: none;
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: row-reverse;
+        z-index: 100px;
+    }
+
+    .slide_1,
+    .slide_2 {
+        width: 100%;
+    }
+
+    .slide_1 {
+        margin: 0 20px 0 5px;
+    }
+
+    .slide_2 {
+        margin: 0 0 0 20px;
+    }
+
+    .search_box {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .search_bar {
+        display: none;
+        /* width: 0px;
+        padding: 0px; */
+    }
+
 }

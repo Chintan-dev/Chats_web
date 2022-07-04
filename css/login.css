@@ -11,13 +11,6 @@
     transition: 1s;
 } */
 
-.signup {
-    /* display: none; */
-}
-
-.login {
-    /* display: none; */
-}
 
 .loginpage {
     /* max-width: 950px;
@@ -101,7 +94,8 @@
     font-size: 17px;
 }
 
-.form form .button input {
+.form form .button input,
+.button button {
     height: 45px;
     border: none;
     color: #fff;
@@ -171,8 +165,16 @@
     border-radius: 0 20px 20px 0;
 }
 
-.imgboxfrom1 {
+/* .login {
     display: none;
+} */
+
+.signup {
+    display: none;
+}
+
+.imgboxfrom1 {
+    display: block;
 }
 
 section,
@@ -182,11 +184,66 @@ section,
     transform: translate(1s);
 }
 
+.google {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+}
 
-/* .login {
-    display: none;
-} */
+.google-btn {
+    width: 200px;
+    width: 100wh;
+    height: 42px;
+    background-color: #4285f4;
+    border-radius: 2px;
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .25);
+}
 
-#signup_section {
-    display: none;
+.google-icon-wrapper {
+    position: absolute;
+    margin-top: 1px;
+    margin-left: 1px;
+    width: 40px;
+    height: 40px;
+    border-radius: 2px;
+    background-color: #fff;
+}
+
+.google-icon {
+    position: absolute;
+    margin-top: 11px;
+    margin-left: 11px;
+    width: 18px;
+    height: 18px;
+}
+
+.btn-text {
+    float: right;
+    margin: 11px 11px 0 0;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    font-family: "Roboto";
+}
+
+.google-btn:hover {
+    box-shadow: 0 0 6px#4285f4;
+}
+
+.google-btn:active {
+    background: #1669F2;
+}
+
+/* 
+@import url(https://fonts.googleapis.com/css?family=Roboto:500); */
+
+@media (max-width:700px) {
+
+    .imgboxfrom1 {
+        width: 0px;
+    }
+
+    .imgboxfrom2 {
+        width: 0px;
+    }
 }

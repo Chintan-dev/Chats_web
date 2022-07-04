@@ -30,7 +30,6 @@ article {
 .chats {
     background-color: var(--header_box_c);
     border-radius: 30px;
-    height: 100%;
     position: relative;
 }
 
@@ -49,7 +48,8 @@ article {
     margin: 10px 10px 0 0;
     overflow-y: scroll;
     scroll-behavior: smooth;
-    max-height: 550px;
+    height: 87vh;
+    /* height: 800px; */
 }
 
 .scrollbox1 {
@@ -222,7 +222,7 @@ article {
     background: var(--main-bg);
     padding: 13px 30px;
     border-radius: 20px;
-    color: var( --main-text);
+    color: var(--main-text);
     cursor: pointer;
 }
 
@@ -338,4 +338,40 @@ article {
 .back {
     margin-left: 10px;
     display: flex;
+}
+
+@media (max-width:700px) {
+    .container {
+        max-height: 314px;
+    }
+
+    article {
+        display: block;
+        margin: 0;
+    }
+
+    .scrollbox {
+        width: inherit;
+        position: fixed;
+        height: 85vh;
+        margin: 0;
+        z-index: 1;
+    }
+
+    .chats {
+        display: none;
+    }
+
+    .user_list {
+        width: 100%;
+        flex-wrap: wrap;
+        overflow: hidden;
+        scroll-behavior: smooth;
+        margin: 0;
+    }
+
+    .user_name_chats {
+        min-width: 60%;
+        margin-right: 20px;
+    }
 }
