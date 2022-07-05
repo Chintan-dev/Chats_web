@@ -43,6 +43,34 @@ body {
     padding: 0 10px;
 }
 
+/* scrollbar */
+
+::-webkit-scrollbar {
+    width: 1px;
+    background: none;
+}
+
+::-webkit-scrollbar:hover {
+    width: 5px;
+    background: var(--scroll_b_color);
+}
+
+::-webkit-scrollbar-track {
+    border: 7px solid #777777;
+    box-shadow: inset 0 0 2.5px 2px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    width: 5px;
+    background: var(--scroll_color);
+}
+
 img {
     width: 100%;
     height: 100%;
@@ -50,7 +78,7 @@ img {
 }
 
 a {
-    color: var(--main-bg);
+    color: var(--main-text);
 }
 
 
@@ -98,6 +126,7 @@ a {
     background-color: var(--bg_color);
     max-width: 100%;
     width: 100%;
+    align-items: center;
 }
 
 .imgbox {
@@ -111,6 +140,115 @@ a {
 
 
 /* header */
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800");
+
+* {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+}
+
+.User-area {
+    width: 45px;
+    height: 45px;
+    position: relative;
+    cursor: pointer;
+}
+
+.User-area>.User-avtar {
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    border: 2px solid var(--scroll_b_color);
+    box-shadow: 0px 0px 12px -5px #000;
+}
+
+.User-area>.User-avtar>img {
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+}
+
+.User-Dropdown {
+    display: none;
+    position: absolute;
+    border-radius: 7px;
+    background: var(--header_box_c);
+    box-shadow: 0px 0px 8px rgba(214, 214, 214, 0.78);
+    list-style: none;
+    padding: 0 20px;
+    width: 150px;
+    margin: 0;
+    top: 70px;
+    right: -9%;
+}
+
+.User-Dropdown:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    margin-left: -0.5em;
+    right: 0px;
+    top: 1px;
+    box-sizing: border-box;
+    border: 7px solid black;
+    border-color: transparent transparent var(--header_box_c) var(--header_box_c);
+    transform-origin: 0 0;
+    transform: rotate(135deg);
+    box-shadow: -3px 3px 3px -3px rgba(214, 214, 214, 0.78);
+}
+
+.User-Dropdown.U-open {
+    display: block;
+}
+
+.User-Dropdown>li {
+    padding: 0px;
+    line-height: 47px;
+    border-bottom: 1px solid rgba(215, 215, 215, 0.17);
+}
+
+.User-Dropdown>li:last-child {
+    border-bottom: 0px;
+}
+
+.User-Dropdown>li>a {
+    font-size: 13px;
+    padding: 15px 25px 16px 10px;
+    text-decoration: none;
+    color: #1787e0;
+    transition: all 0.2s ease-out;
+}
+
+.User-Dropdown span {
+    background: #16d67a;
+    padding: 3px 10px;
+    color: var(--header_box_c);
+    border-radius: 30px;
+    font-size: 13px;
+}
+
+.User-Dropdown>li:before {
+    content: "";
+    width: 0px;
+    height: 40px;
+    position: absolute;
+    background: #2196f3;
+    margin-top: 4px;
+    border-radius: 0 1px 1px 0;
+    left: 0px;
+    transition: all 0.2s ease;
+}
+
+.User-Dropdown>li:hover:before {
+    width: 5px;
+    border-radius: 30px;
+}
+
+.User-Dropdown>li a:hover {
+    margin-left: 5px;
+}
 
 .form>header,
 .container>header {
@@ -205,27 +343,7 @@ a {
 /* header */
 
 
-/* scrollbar */
 
-::-webkit-scrollbar {
-    width: 9px;
-    background: var(--scroll_b_color);
-}
-
-::-webkit-scrollbar-track {
-    border: 7px solid #777777;
-    box-shadow: inset 0 0 2.5px 2px rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.4);
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--scroll_color);
-}
 
 @media (max-width:700px) {
 

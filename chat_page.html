@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./css/theme.css">
     <link rel="stylesheet" href="./css/Chat_page.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 </head>
 
 <body>
@@ -34,243 +35,96 @@
                 <div class="icon_box">
                     <ion-icon class="icon" name="notifications-outline"></ion-icon>
                 </div>
-                <div class="icon_box">
-                    <img src="./img/5.jpg" alt="" srcset="">
+
+                <!-- <div class="icon_box"><img src="./img/5.jpg" alt="" srcset=""></div> -->
+                <div class="User-area">
+                    <!-- <div class="User-avtar">
+                        <img src="http://f1s.000webhostapp.com/images/avatar/avatar5.png" />
+                    </div> -->
+                    <div class="icon_box User">
+                        <img src="./img/profiles/1.webp" id="user_img" alt="" srcset="">
+                    </div>
+                    <ul class="User-Dropdown ">
+
+                        <!-- <li><a href="#">My Profile</a></li>
+                        <li><a href="#">Notifications</a><span>40</span></li>
+                        <li><a href="#">Projects</a></li>
+                        <li><a href="#">Settings</a></li> -->
+                        <li><a href="#" onclick="logout()">Logout</a></li>
+                    </ul>
                 </div>
             </div>
         </header>
         <Article>
+            <!-- oncontextmenu="return false" -->
             <div class="user_list">
+                <div class="scanuser_box">
+                    <div class="seach">
+                        <input type="text">
+                    </div>
+                    <div class="more">
+                        <ion-icon class="icon" name="ellipsis-vertical-outline"></ion-icon>
+                    </div>
+                </div>
                 <div class="scrollbox">
-                    <div class="user_box">
-                        <div class="img_user">
-                            <img src="./img/profiles/1.webp" alt="loading">
-                        </div>
-                        <div class="user_name_chats">
-                            <div class="chart_name">
-                                Ganseh Ghutiya
-                            </div>
-                            <div class="chats_shot">
-                                hiii , bro
-                            </div>
-                        </div>
-                        <div class="time_no">
-                            <div class="time">
-                                10:20pm
-                            </div>
-                            <div class="notification_no">20</div>
-                        </div>
-                    </div>
-                    <div class="user_box">
-                        <div class="img_user">
-                            <img src="./img/profiles/1.webp" alt="loading">
-                        </div>
-                        <div class="user_name_chats">
-                            <div class="chart_name">
-                                Ganseh Ghutiya
-                            </div>
-                            <div class="chats_shot">
-                                hiii , bro
-                            </div>
-                        </div>
-                        <div class="time_no">
-                            <div class="time">
-                                10:20pm
-                            </div>
-                            <div class="notification_no">20</div>
-                        </div>
-                    </div>
-                    <div class="user_box">
-                        <div class="img_user">
-                            <img src="./img/profiles/1.webp" alt="loading">
-                        </div>
-                        <div class="user_name_chats">
-                            <div class="chart_name">
-                                Ganseh Ghutiya
-                            </div>
-                            <div class="chats_shot">
-                                hiii , bro
-                            </div>
-                        </div>
-                        <div class="time_no">
-                            <div class="time">
-                                10:20pm
-                            </div>
-                            <div class="notification_no">20</div>
-                        </div>
-                    </div>
-                    <div class="user_box">
-                        <div class="img_user">
-                            <img src="./img/profiles/1.webp" alt="loading">
-                        </div>
-                        <div class="user_name_chats">
-                            <div class="chart_name">
-                                Ganseh Ghutiya
-                            </div>
-                            <div class="chats_shot">
-                                hiii , bro
-                            </div>
-                        </div>
-                        <div class="time_no">
-                            <div class="time">
-                                10:20pm
-                            </div>
-                            <div class="notification_no">20</div>
-                        </div>
-                    </div>
-                    <div class="user_box">
-                        <div class="img_user">
-                            <img src="./img/profiles/1.webp" alt="loading">
-                        </div>
-                        <div class="user_name_chats">
-                            <div class="chart_name">
-                                Ganseh Ghutiya
-                            </div>
-                            <div class="chats_shot">
-                                hiii , bro
-                            </div>
-                        </div>
-                        <div class="time_no">
-                            <div class="time">
-                                10:20pm
-                            </div>
-                            <div class="notification_no">20</div>
-                        </div>
-                    </div>
-                    <div class="user_box">
-                        <div class="img_user">
-                            <img src="./img/profiles/1.webp" alt="loading">
-                        </div>
-                        <div class="user_name_chats">
-                            <div class="chart_name">
-                                Ganseh Ghutiya
-                            </div>
-                            <div class="chats_shot">
-                                hiii , bro
-                            </div>
-                        </div>
-                        <div class="time_no">
-                            <div class="time">
-                                10:20pm
-                            </div>
-                            <div class="notification_no">20</div>
-                        </div>
-                    </div>
-                    <div class="user_box">
-                        <div class="img_user">
-                            <img src="./img/profiles/1.webp" alt="loading">
-                        </div>
-                        <div class="user_name_chats">
-                            <div class="chart_name">
-                                Ganseh Ghutiya
-                            </div>
-                            <div class="chats_shot">
-                                hiii , bro
-                            </div>
-                        </div>
-                        <div class="time_no">
-                            <div class="time">
-                                10:20pm
-                            </div>
-                            <div class="notification_no">20</div>
-                        </div>
-                    </div>
-                    <div class="user_box">
-                        <div class="img_user">
-                            <img src="./img/profiles/1.webp" alt="loading">
-                        </div>
-                        <div class="user_name_chats">
-                            <div class="chart_name">
-                                Ganseh Ghutiya
-                            </div>
-                            <div class="chats_shot">
-                                hiii , bro
-                            </div>
-                        </div>
-                        <div class="time_no">
-                            <div class="time">
-                                10:20pm
-                            </div>
-                            <div class="notification_no">20</div>
-                        </div>
-                    </div>
-                    <div class="user_box">
-                        <div class="img_user">
-                            <img src="./img/profiles/1.webp" alt="loading">
-                        </div>
-                        <div class="user_name_chats">
-                            <div class="chart_name">
-                                Ganseh Ghutiya
-                            </div>
-                            <div class="chats_shot">
-                                hiii , bro
-                            </div>
-                        </div>
-                        <div class="time_no">
-                            <div class="time">
-                                10:20pm
-                            </div>
-                            <div class="notification_no">20</div>
-                        </div>
-                    </div>
-                    <div class="user_box">
-                        <div class="img_user">
-                            <img src="./img/profiles/1.webp" alt="loading">
-                        </div>
-                        <div class="user_name_chats">
-                            <div class="chart_name">
-                                Ganseh Ghutiya
-                            </div>
-                            <div class="chats_shot">
-                                hiii , bro
-                            </div>
-                        </div>
-                        <div class="time_no">
-                            <div class="time">
-                                10:20pm
-                            </div>
-                            <div class="notification_no">20</div>
-                        </div>
-                    </div>
-                    <div class="user_box">
-                        <div class="img_user">
-                            <img src="./img/profiles/1.webp" alt="loading">
-                        </div>
-                        <div class="user_name_chats">
-                            <div class="chart_name">
-                                Ganseh Ghutiya
-                            </div>
-                            <div class="chats_shot">
-                                hiii , bro
-                            </div>
-                        </div>
-                        <div class="time_no">
-                            <div class="time">
-                                10:20pm
-                            </div>
-                            <div class="notification_no">20</div>
-                        </div>
-                    </div>
-                    <div class="user_box">
-                        <div class="img_user">
-                            <img src="./img/profiles/1.webp" alt="loading">
-                        </div>
-                        <div class="user_name_chats">
-                            <div class="chart_name">
-                                Ganseh Ghutiya
-                            </div>
-                            <div class="chats_shot">
-                                hiii , bro
-                            </div>
-                        </div>
-                        <div class="time_no">
-                            <div class="time">
-                                10:20pm
-                            </div>
-                            <div class="notification_no">20</div>
-                        </div>
-                    </div>
 
+                    <div class="user_box " id="1" onclick="clickme(this.id)">
+                        <div class="img_user">
+                            <img src="./img/profiles/1.webp" alt="loading">
+                        </div>
+                        <div class="user_name_chats">
+                            <div class="chart_name">
+                                Ganseh Ghutiya
+                            </div>
+                            <div class="chats_shot">
+                                hiii , bro
+                            </div>
+                        </div>
+                        <div class="time_no">
+                            <div class="time">
+                                10:20pm
+                            </div>
+                            <div class="notification_no">20</div>
+                        </div>
+                    </div>
+                    <div class="user_box" id="2" onclick="clickme(this.id)">
+                        <div class="img_user">
+                            <img src="./img/profiles/1.webp" alt="loading">
+                        </div>
+                        <div class="user_name_chats">
+                            <div class="chart_name">
+                                Ganseh Ghutiya
+                            </div>
+                            <div class="chats_shot">
+                                hiii , bro
+                            </div>
+                        </div>
+                        <div class="time_no">
+                            <div class="time">
+                                10:20pm
+                            </div>
+                            <div class="notification_no">20</div>
+                        </div>
+                    </div>
+                    <div class="user_box" id="3" onclick="clickme(this.id)">
+                        <div class="img_user">
+                            <img src="./img/profiles/1.webp" alt="loading">
+                        </div>
+                        <div class="user_name_chats">
+                            <div class="chart_name">
+                                Ganseh Ghutiya
+                            </div>
+                            <div class="chats_shot">
+                                hiii , bro
+                            </div>
+                        </div>
+                        <div class="time_no">
+                            <div class="time">
+                                10:20pm
+                            </div>
+                            <div class="notification_no">20</div>
+                        </div>
+                    </div>
 
                 </div>
             </div>
@@ -397,7 +251,7 @@
 <script src="./js/ionicons.esm.js"></script>
 <script src="./js/ionicons.js"></script>
 <script src="./js/theme.js"></script>
-
+<script src="./js/chat.js"></script>
 
 </html>
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></> -->

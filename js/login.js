@@ -1,35 +1,32 @@
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-    apiKey: "AIzaSyAr5zya2cW4ma0T2KsaVdTbqwP-LSMvq_g",
-    authDomain: "yougram--com.firebaseapp.com",
-    databaseURL: "https://yougram--com-default-rtdb.firebaseio.com",
-    projectId: "yougram--com",
-    storageBucket: "yougram--com.appspot.com",
-    messagingSenderId: "41545296369",
-    appId: "1:41545296369:web:6a93bdbbcb04a798c23c50",
-    measurementId: "G-RWBVHYVZVH"
-};
+// // Your web app's Firebase configuration
+// // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// const firebaseConfig = {
+//     apiKey: "AIzaSyAr5zya2cW4ma0T2KsaVdTbqwP-LSMvq_g",
+//     authDomain: "yougram--com.firebaseapp.com",
+//     databaseURL: "https://yougram--com-default-rtdb.firebaseio.com",
+//     projectId: "yougram--com",
+//     storageBucket: "yougram--com.appspot.com",
+//     messagingSenderId: "41545296369",
+//     appId: "1:41545296369:web:6a93bdbbcb04a798c23c50",
+//     measurementId: "G-RWBVHYVZVH"
+// };
 
 
-// Initialize Firebase
-// const app = initializeApp(firebaseConfig);
-//const analytics = getAnalytics(app);
-firebase.initializeApp(firebaseConfig);
+// // Initialize Firebase
+// firebase.initializeApp(firebaseConfig);
 
-
-var starCountRef = firebase.database().ref('users/-N5tLl1okR8LPiGZu81a');
-starCountRef.on('value', (snapshot) => {
-    const data = snapshot.val();
-    updateStarCount(postElement, data);
-    console.log(data);
-});
-
+// get username
+function call() {
+    var username = document.getElementById('username').value;
+    alert(username);
+}
+var username = 'chintan';
 // reference your database
-var contactFormDB = firebase.database().ref("users");
+var contactFormDB = firebase.database().ref('Datas/users/' + username);
 
-document.getElementById("signup_section").addEventListener("submit", submitForm);
+// signup
 
+document.getElementById("signup_form").addEventListener("submit", submitForm);
 
 function submitForm(e) {
     e.preventDefault();
@@ -40,18 +37,16 @@ function submitForm(e) {
     var username = getElementVal("username");
     var number = getElementVal("number");
     var password = getElementVal("password");
-
     var ele = document.getElementsByName('gender');
     for (i = 0; i < ele.length; i++) {
         if (ele[i].checked)
             var gender = ele[i].value;
-        // document.getElementById("result").innerHTML = "Gender: " + ele[i].value;
     }
 
     saveMessages(fname, lname, email, username, number, password, gender);
 
     //   enable alert
-    console.log("done")
+    console.log("success")
     swal({
         title: "user registered",
         text: "",
@@ -64,7 +59,8 @@ function submitForm(e) {
     //   remove the alert
 
     //   reset the form
-    document.getElementById("signup_section").reset();
+
+    document.getElementById("signup_form").reset();
 }
 
 const saveMessages = (fname, lname, email, username, number, password, gender) => {
@@ -84,6 +80,20 @@ const saveMessages = (fname, lname, email, username, number, password, gender) =
 const getElementVal = (id) => {
     return document.getElementById(id).value;
 };
+
+
+
+
+// login
+
+function loginUser() {
+    var email = document.getElementById("user_name").value;
+    var password = document.getElementById("password").value;
+
+    //firebase have pre built login function
+    //it takes two parameters first email and second is password
+
+}
 
 
 

@@ -21,3 +21,10 @@ const setThemeOnInit = () => {
         setTheme(initialTheme);
 }
 setThemeOnInit();
+
+function logout() {
+    localStorage.removeItem("photoURL");
+    localStorage.removeItem("uid");
+    localStorage.removeItem("displayName");
+    window.location = "login.html";
+}
