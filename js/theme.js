@@ -23,6 +23,7 @@ const setThemeOnInit = () => {
 setThemeOnInit();
 
 function logout() {
+    auth.signOut();
     localStorage.removeItem("photoURL");
     localStorage.removeItem("uid");
     localStorage.removeItem("displayName");

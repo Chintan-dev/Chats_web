@@ -22,7 +22,9 @@
 
 article {
     display: flex;
-    max-height: 673px;
+    max-height: 630px;
+    flex-direction: row;
+    align-items: stretch;
 }
 
 .user_list,
@@ -44,13 +46,14 @@ article {
 }
 
 .seach>input {
-    border: #fff solid 1px;
+    border: var(--scroll_color) solid 1px;
     outline: none;
     background: none;
     cursor: pointer;
     border-radius: 20px;
     padding: 10px;
     max-width: 100%;
+    width: 302px;
     color: var(--main-text);
     font-size: medium;
 }
@@ -107,8 +110,10 @@ article {
 } */
 
 .chats {
-    width: min(70%);
     margin: 5px 30px 5px 10px;
+    width: 70%;
+    /* width: 800px; */
+    /* max-width: 632px; */
     display: flex;
 }
 
@@ -207,10 +212,10 @@ article {
 }
 
 .user_chats {
-    /* width: 100%; */
-    min-width: 90%;
+    width: 700px;
+    min-width: 95%;
     height: -webkit-fill-available;
-    max-height: 580px;
+    max-height: 550px;
     margin-inline: auto;
     display: flex;
     flex-direction: column;

@@ -1,6 +1,6 @@
 
 function clickme(id) {
-          var btn = document.getElementById(id);
+          var btn = document.getElementById(3);
           btn.classList.toggle("active");
 }
 
