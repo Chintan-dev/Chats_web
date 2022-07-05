@@ -30,7 +30,7 @@ article {
 .user_list,
 .chats {
     background-color: var(--header_box_c);
-    border-radius: 30px;
+    border-radius: 20px;
     position: relative;
 }
 
@@ -112,9 +112,8 @@ article {
 .chats {
     margin: 5px 30px 5px 10px;
     width: 70%;
-    /* width: 800px; */
-    /* max-width: 632px; */
-    display: flex;
+    background-image: url(../img/bg.png);
+    background-color: #35353578;
 }
 
 .user_box {
@@ -128,6 +127,13 @@ article {
     flex-wrap: nowrap;
 }
 
+#header {
+    visibility: collapse;
+}
+
+#user_chats {
+    visibility: collapse;
+}
 
 .img_user {
     width: 50px;
@@ -212,11 +218,11 @@ article {
 }
 
 .user_chats {
-    width: 700px;
+    width: 600px;
     min-width: 95%;
-    height: -webkit-fill-available;
+    /* height: -webkit-fill-available; */
     max-height: 550px;
-    margin-inline: auto;
+    height: 550px;
     display: flex;
     flex-direction: column;
 }
@@ -281,9 +287,7 @@ article {
 
 .chat-box {
     position: relative;
-    /* min-height: 440px;
-    max-height: 500px;
-    max-height: 440px; */
+    height: 100%;
     overflow-y: scroll;
     padding: 10px 10px
         /* background: var(--header_box_c);

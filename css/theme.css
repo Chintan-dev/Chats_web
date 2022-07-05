@@ -181,6 +181,7 @@ a {
     margin: 0;
     top: 70px;
     right: -9%;
+    z-index: 10;
 }
 
 .User-Dropdown:before {

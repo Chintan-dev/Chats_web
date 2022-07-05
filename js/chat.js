@@ -1,7 +1,10 @@
 
 function clickme(id) {
-          var btn = document.getElementById(3);
+          var btn = document.getElementById(id);
           btn.classList.toggle("active");
+          //document.getElementById("p2").style.color = "blue";
+          document.getElementById('user_chats').style.visibility = "visible";
+          document.getElementById('header').style.visibility = "visible";
 }
 
 $('.User').click(function () {
