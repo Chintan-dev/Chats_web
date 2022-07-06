@@ -22,10 +22,47 @@ const setThemeOnInit = () => {
 }
 setThemeOnInit();
 
-function logout() {
-    auth.signOut();
-    localStorage.removeItem("photoURL");
-    localStorage.removeItem("uid");
-    localStorage.removeItem("displayName");
-    window.location = "login.html";
+
+$(function () {
+    $(".search_box").click(function () {
+        $(".pop-box, .cover").show();
+    });
+    $(".cover, .x-btn").click(function () {
+        $(".cover, .pop-box").hide();
+    });
+});
+
+
+// get user data
+search_list = [];
+function search() {
+    console.log("called");
+    var starCountRef = firebase.database().ref('Datas/users');
+
+    starCountRef.once('value', (snapshot) => {
+        snapshot.forEach((childSnapshot) => {
+            var childKey = childSnapshot.key;
+            var childData = childSnapshot.val();
+            //console.log(childKey);
+            //console.log(childData);
+            data = `<div class="users_info">
+                        <div class="box_s">
+                            <div class="img_s">
+                                <img src="${childData.photoURL}" id="photoURl" alt="">
+                            </div>
+                            <div class="username_s" id="displayName">
+                                    ${childData.displayName}
+                            </div>
+                        </div>
+                        <div class="connect" id="${childData.uid}" onclick="msg_id_send_in_db(this.id)">
+                            <button>msg</button>
+                        </div>
+                    </div>`;
+            search_list.push(data);
+        });
+        document.getElementById('get_data').innerHTML = search_list;
+    });
+}
+function msg_id_send_in_db(uid) {
+    alert(uid);
 }

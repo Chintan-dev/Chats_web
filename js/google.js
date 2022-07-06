@@ -1,3 +1,22 @@
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+          apiKey: "AIzaSyAr5zya2cW4ma0T2KsaVdTbqwP-LSMvq_g",
+          authDomain: "yougram--com.firebaseapp.com",
+          databaseURL: "https://yougram--com-default-rtdb.firebaseio.com",
+          projectId: "yougram--com",
+          storageBucket: "yougram--com.appspot.com",
+          messagingSenderId: "41545296369",
+          appId: "1:41545296369:web:6a93bdbbcb04a798c23c50",
+          measurementId: "G-RWBVHYVZVH"
+};
+
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+
 function GoogleLogin() {
           //first of all create google provider object
           var provider = new firebase.auth.GoogleAuthProvider();
@@ -15,9 +34,14 @@ function GoogleLogin() {
 
                               // The signed-in user info.
                               var user = result.user;
-                              console.log(localStorage.setItem("displayName", user.displayName));
-                              console.log(localStorage.setItem("photoURL", user.photoURL));
-                              console.log(localStorage.setItem("uid", user.uid));
+                              //console.log(user);
+
+                              localStorage.setItem("displayName", user.displayName);
+                              localStorage.setItem("photoURL", user.photoURL);
+                              localStorage.setItem("uid", user.uid);
+                              localStorage.setItem("email", user.email);
+                              console.log(user.displayName + " " + user.photoURL + " " + user.uid + " " + user.email);
+                              storagedata(user.displayName, user.photoURL, user.uid, user.email);
 
                               window.location = "chat_page.html";
                               // ...
@@ -33,6 +57,17 @@ function GoogleLogin() {
                     });
 }
 
+
+function storagedata(displayName, photoURL, uid, email) {
+          firebase.database().ref('Datas/users/' + uid).set({
+                    uid: uid,
+                    displayName: displayName,
+                    photoURL: photoURL,
+                    email: email,
+          });
+          console.log("success");
+}
+
 function signup() {
           firebase.auth().createUserWithEmailAndPassword(email, password)
                     .then((userCredential) => {
@@ -45,4 +80,20 @@ function signup() {
                               var errorMessage = error.message;
                               // ..
                     });
+}
+
+function logout() {
+          // var provider = new firebase.auth.GoogleAuthProvider();
+          // firebase.auth()
+          localStorage.removeItem("photoURL");
+          localStorage.removeItem("uid");
+          localStorage.removeItem("displayName");
+          localStorage.removeItem("email");
+          window.location = "login.html";
+
+          firebase.auth().signOut().then(() => {
+                    alert("Sign-out successful.")
+          }).catch((error) => {
+                    // An error happened.
+          });
 }

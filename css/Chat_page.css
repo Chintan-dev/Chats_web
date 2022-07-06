@@ -133,6 +133,7 @@ article {
 
 #user_chats {
     visibility: collapse;
+    margin-inline: auto;
 }
 
 .img_user {
@@ -393,6 +394,15 @@ article {
     margin-left: 10px;
     display: flex;
 }
+
+
+
+
+
+
+
+
+
 
 @media (max-width:700px) {
     .container {

@@ -10,18 +10,32 @@
     <link rel="stylesheet" href="./css/theme.css">
     <link rel="stylesheet" href="./css/Chat_page.css">
     <!-- <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css"> -->
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
 </head>
 
 <body>
+    <div class="cover"> </div>
+    <div class="pop-box">
+        <span class="x-btn">
+            <ion-icon name="close-sharp"></ion-icon>
+        </span>
+        <div class="header_s">
+            <input type="text" name="search" id="search" placeholder="Search.....">
+
+        </div>
+        <div class="list_user" id="get_data"></div>
+    </div>
+
+
     <section class="container">
         <header>
             <div class="slide_1">
-                <div class="search_box">
+                <div class="search_box" onclick="search()">
                     <label for="" class="">
                         <ion-icon class="s_icon" name="search-outline"></ion-icon>
-                        <input type="text" name="search" id="search" class="search_bar" placeholder="Search.....">
                     </label>
                 </div>
             </div>
@@ -66,9 +80,9 @@
                     <div class="seach">
                         <input type="text">
                     </div>
-                    <div class="more">
+                    <!-- <div class="more">
                         <ion-icon class="icon" name="ellipsis-vertical-outline"></ion-icon>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="scrollbox">
 
@@ -187,11 +201,27 @@
                                 <p>Hiii brooo</p>
                             </div>
                         </div>
+                        <div class="chat incoming">
+                            <img src="./img/1.jpg" class="incoming_img" alt="">
+                            <div class="details">
+                                <p>Hello 👋</p>
+                            </div>
+                        </div>
+                        <div class="chat outgoing">
+                            <div class="details">
+                                <p>Hiii brooo</p>
+                            </div>
+                        </div>
+                        <div class="chat outgoing">
+                            <div class="details">
+                                <p>tu pagal</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="send_chats">
-                        <input type="text" class="send_box" name="" id="">
+                        <input type="text" id="message" class="send_box" name="" id="">
                         <!-- <input type="submit" value=""> -->
-                        <ion-icon name="paper-plane-outline" class="send_btn">
+                        <ion-icon name="paper-plane-outline" class="send_btn" onclick="send_msg()">
                     </div>
                 </div>
             </div>
@@ -206,6 +236,10 @@
 <script src="./js/ionicons.js"></script>
 <script src="./js/theme.js"></script>
 <script src="./js/chat.js"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+<script src="./js/google.js"></script>
 
 </html>
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></> -->
