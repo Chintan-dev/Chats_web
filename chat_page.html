@@ -33,7 +33,8 @@
     <section class="container">
         <header>
             <div class="slide_1">
-                <div class="search_box" onclick="search()">
+                <div class="search_box">
+                    <!-- onclick="search()" -->
                     <label for="" class="">
                         <ion-icon class="s_icon" name="search-outline"></ion-icon>
                     </label>
@@ -143,13 +144,127 @@
                             <div class="notification_no">20</div>
                         </div>
                     </div>
+                    <div class="user_box " id="1" onclick="clickme(this.id)">
+                        <div class="img_user">
+                            <img src="./img/profiles/1.webp" alt="loading">
+                        </div>
+                        <div class="user_name_chats">
+                            <div class="chart_name">
+                                Ganseh Ghutiya
+                            </div>
+                            <div class="chats_shot">
+                                hiii , bro
+                            </div>
+                        </div>
+                        <div class="time_no">
+                            <div class="time">
+                                10:20pm
+                            </div>
+                            <div class="notification_no">20</div>
+                        </div>
+                    </div>
+                    <div class="user_box" id="2" onclick="clickme(this.id)">
+                        <div class="img_user">
+                            <img src="./img/profiles/1.webp" alt="loading">
+                        </div>
+                        <div class="user_name_chats">
+                            <div class="chart_name">
+                                Ganseh Ghutiya
+                            </div>
+                            <div class="chats_shot">
+                                hiii , bro
+                            </div>
+                        </div>
+                        <div class="time_no">
+                            <div class="time">
+                                10:20pm
+                            </div>
+                            <div class="notification_no">20</div>
+                        </div>
+                    </div>
+                    <div class="user_box" id="3" onclick="clickme(this.id)">
+                        <div class="img_user">
+                            <img src="./img/profiles/1.webp" alt="loading">
+                        </div>
+                        <div class="user_name_chats">
+                            <div class="chart_name">
+                                Ganseh Ghutiya
+                            </div>
+                            <div class="chats_shot">
+                                hiii , bro
+                            </div>
+                        </div>
+                        <div class="time_no">
+                            <div class="time">
+                                10:20pm
+                            </div>
+                            <div class="notification_no">20</div>
+                        </div>
+                    </div>
+                    <div class="user_box " id="1" onclick="clickme(this.id)">
+                        <div class="img_user">
+                            <img src="./img/profiles/1.webp" alt="loading">
+                        </div>
+                        <div class="user_name_chats">
+                            <div class="chart_name">
+                                Ganseh Ghutiya
+                            </div>
+                            <div class="chats_shot">
+                                hiii , bro
+                            </div>
+                        </div>
+                        <div class="time_no">
+                            <div class="time">
+                                10:20pm
+                            </div>
+                            <div class="notification_no">20</div>
+                        </div>
+                    </div>
+                    <div class="user_box" id="2" onclick="clickme(this.id)">
+                        <div class="img_user">
+                            <img src="./img/profiles/1.webp" alt="loading">
+                        </div>
+                        <div class="user_name_chats">
+                            <div class="chart_name">
+                                Ganseh Ghutiya
+                            </div>
+                            <div class="chats_shot">
+                                hiii , bro
+                            </div>
+                        </div>
+                        <div class="time_no">
+                            <div class="time">
+                                10:20pm
+                            </div>
+                            <div class="notification_no">20</div>
+                        </div>
+                    </div>
+                    <div class="user_box" id="3" onclick="clickme(this.id)">
+                        <div class="img_user">
+                            <img src="./img/profiles/1.webp" alt="loading">
+                        </div>
+                        <div class="user_name_chats">
+                            <div class="chart_name">
+                                Ganseh Ghutiya
+                            </div>
+                            <div class="chats_shot">
+                                hiii , bro
+                            </div>
+                        </div>
+                        <div class="time_no">
+                            <div class="time">
+                                10:20pm
+                            </div>
+                            <div class="notification_no">20</div>
+                        </div>
+                    </div>
 
                 </div>
             </div>
 
-            <div class="chats">
+            <div class="chats" id="chats">
                 <header id="header">
-                    <div class="back">
+                    <div class="back" onclick="back_to_chats()">
                         <ion-icon class="icon" class="arrow_back" name="arrow-back-outline">
                     </div>
                     <div class="user_chats_img">
@@ -229,6 +344,11 @@
         </Article>
     </section>
 </body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+<script src="./js/google.js"></script>
+
+
 <script src="./js/main.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
@@ -237,9 +357,6 @@
 <script src="./js/theme.js"></script>
 <script src="./js/chat.js"></script>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
-<script src="./js/google.js"></script>
 
 </html>
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></> -->

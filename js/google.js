@@ -35,12 +35,14 @@ function GoogleLogin() {
                               // The signed-in user info.
                               var user = result.user;
                               //console.log(user);
-
-                              localStorage.setItem("displayName", user.displayName);
-                              localStorage.setItem("photoURL", user.photoURL);
-                              localStorage.setItem("uid", user.uid);
-                              localStorage.setItem("email", user.email);
-                              console.log(user.displayName + " " + user.photoURL + " " + user.uid + " " + user.email);
+                              const login_data = {
+                                        displayName: user.displayName,
+                                        photoURL: user.photoURL,
+                                        uid: user.uid,
+                                        email: user.email
+                              }
+                              localStorage.setItem('login_data', JSON.stringify(login_data));
+                              //console.log(user.displayName + " " + user.photoURL + " " + user.uid + " " + user.email);
                               storagedata(user.displayName, user.photoURL, user.uid, user.email);
 
                               window.location = "chat_page.html";
@@ -85,10 +87,7 @@ function signup() {
 function logout() {
           // var provider = new firebase.auth.GoogleAuthProvider();
           // firebase.auth()
-          localStorage.removeItem("photoURL");
-          localStorage.removeItem("uid");
-          localStorage.removeItem("displayName");
-          localStorage.removeItem("email");
+          localStorage.removeItem("login_data");
           window.location = "login.html";
 
           firebase.auth().signOut().then(() => {
