@@ -108,6 +108,8 @@ article {
 
 #header {
     visibility: collapse;
+    background-color: var(--header_box_c);
+    border-radius: 20px;
 }
 
 #user_chats {
@@ -174,7 +176,7 @@ article {
     display: flex;
     height: 70px;
     margin: 0;
-    border-bottom: 1px solid var(--main-text);
+    /* border-bottom: 1px solid var(--main-text); */
     /* border-radius: 20px 20px 10px 10px; */
     align-items: center;
     justify-content: center;
@@ -370,6 +372,7 @@ article {
 }
 
 .back {
+    visibility: collapse;
     margin-left: 10px;
     display: flex;
 }
@@ -384,6 +387,13 @@ article {
 
 
 @media (max-width:700px) {
+
+    html,
+    body {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
     .container {
         /* max-height: 314px; */
     }
@@ -424,4 +434,9 @@ article {
     .scrollbox {
         max-height: 76vh;
     }
+
+    .back {
+        visibility: visible;
+    }
+
 }
