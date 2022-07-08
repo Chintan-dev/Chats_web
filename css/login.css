@@ -185,12 +185,12 @@ section,
 }
 
 .google {
-    cursor: pointer;
     display: flex;
     justify-content: center;
 }
 
 .google-btn {
+    cursor: pointer;
     width: 200px;
     width: 100wh;
     height: 42px;

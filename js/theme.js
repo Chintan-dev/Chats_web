@@ -26,6 +26,8 @@ setThemeOnInit();
 $(function () {
     $(".search_box").click(function () {
         $(".pop-box, .cover").show();
+        // document.getElementById('pop-box').style.display = 'flex';
+        // document.getElementById('cover').style.display = 'flex';
     });
     $(".cover, .x-btn").click(function () {
         $(".cover, .pop-box").hide();
@@ -34,18 +36,17 @@ $(function () {
 
 
 // get user data
-search_list = [];
-//function search() {
-console.log("called");
-var starCountRef = firebase.database().ref('Datas/users');
+search();
+function search() {
+    console.log("called: search");
+    var starCountRef = firebase.database().ref('Datas/users');
 
-starCountRef.once('value', (snapshot) => {
-    snapshot.forEach((childSnapshot) => {
-        var childKey = childSnapshot.key;
-        var childData = childSnapshot.val();
-        //console.log(childKey);
-        //console.log(childData);
-        data = `<div class="users_info">
+    starCountRef.once('value', (snapshot) => {
+        snapshot.forEach((childSnapshot) => {
+            var childKey = childSnapshot.key;
+            var childData = childSnapshot.val();
+            if (childData.email !== firebase.auth().currentUser.email) {
+                data = `<div class="users_info">
                         <div class="box_s">
                             <div class="img_s">
                                 <img src="${childData.photoURL}" id="photoURl" alt="">
@@ -58,12 +59,11 @@ starCountRef.once('value', (snapshot) => {
                             <button>connect</button>
                         </div>
                     </div>`;
-        search_list.push(data);
+                document.getElementById('get_data').innerHTML += data;
+            }
+        });
     });
-    console.log(search_list);
-    document.getElementById('get_data').innerHTML = search_list;
-});
-//}
+}
 
 
 function msg_id_send_in_db(uid_f) {

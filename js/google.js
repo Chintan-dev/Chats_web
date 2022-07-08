@@ -50,11 +50,15 @@ function GoogleLogin() {
                     }).catch((error) => {
                               // Handle Errors here.
                               var errorCode = error.code;
+                              alert(errorCode);
                               var errorMessage = error.message;
+                              alert(errorMessage);
                               // The email of the user's account used.
                               var email = error.email;
+                              alert(email);
                               // The firebase.auth.AuthCredential type that was used.
                               var credential = error.credential;
+                              alert(credential);
                               // ...
                     });
 }
