@@ -423,7 +423,40 @@ span {
 
 /* header */
 
+.boxloader1 {
+    width: 11%;
+    height: 100vh;
+    height: 16%;
+    /* background-color: rgb(17, 17, 17); */
+    margin: 29px 0px 17px 432px;
+    position: sticky;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    animation: loader;
+}
 
+.loader {}
+
+@keyframes loader {
+    25% {
+        color: #2ecc71;
+    }
+
+    50% {
+        color: #f1c40f;
+    }
+
+    75% {
+        color: #e74c3c;
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
 
 
 @media (max-width:700px) {

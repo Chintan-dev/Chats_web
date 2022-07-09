@@ -35,6 +35,12 @@ $(function () {
 });
 
 
+function alertFunction() {
+    // alert('ok');
+}
+window.onload = alertFunction;
+
+
 // get user data
 search();
 function search() {
@@ -68,7 +74,7 @@ function search() {
 
 function msg_id_send_in_db(uid_f) {
     const { displayName, photoURL, uid, email } = JSON.parse(localStorage.getItem('login_data'));
-    firebase.database().ref('Datas/connect/' + uid).set({
+    firebase.database().ref('Datas/connect/').push({
         uid: uid,
         uid_f: uid_f
     });

@@ -65,7 +65,7 @@ function GoogleLogin() {
 
 
 function storagedata(displayName, photoURL, uid, email) {
-          firebase.database().ref('Datas/users/' + uid).set({
+          firebase.database().ref('Datas/users').set({
                     uid: uid,
                     displayName: displayName,
                     photoURL: photoURL,

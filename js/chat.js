@@ -36,7 +36,7 @@ function LoadChatList() {
                                                             </div>
                                                             <div class="user_name_chats">
                                                                       <div class="chart_name">
-                                                                                ${user.displayName}
+                                                                                ${user.displayName}  
                                                                       </div>
                                                                       <div class="chats_shot">
                                                                                 hiii , bro
@@ -64,10 +64,16 @@ function send_msg() {
           document.getElementById('message').value = "";
 }
 
-function clickme(id) {
-          var btn = document.getElementById(id);
-          btn.classList.toggle("active");
-          //document.getElementById("p2").style.color = "blue";
+function clickme(f_id) {
+          firebase.database().ref('Datas/users').child(f_id).on('value', function (data) {
+                    var user = data.val();
+                    document.getElementById('f_name').innerHTML = user.displayName;
+                    document.getElementById('f_img').src = user.photoURL;
+
+                    var btn = document.getElementById(f_id);
+                    btn.classList.toggle("active");
+          });
+
           document.getElementById('user_chats').style.visibility = "visible";
           document.getElementById('header').style.visibility = "visible";
           document.getElementById('chats').style.right = "0%";
