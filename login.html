@@ -33,11 +33,12 @@
                     </div>
                     <div class="field input">
                         <label>Password</label>
-                        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                        <input type="password" id="password_login" name="password" placeholder="Enter your password"
+                            required>
                         <i class="fas fa-eye"></i>
                     </div>
                     <div class="field button">
-                        <input type="submit" name="submit" value="Login">
+                        <input type="button" name="submit" onclick="loginUser()" value="Login">
                     </div>
                 </form>
                 <div class="link">Not yet signed up? <a href="#" onclick="Signup()">Signup now</a></div>
@@ -72,14 +73,14 @@
                         <label>Email Address</label>
                         <input type="text" name="email" id="email" placeholder="Enter your email" required>
                     </div>
-                    <div class="field input">
+                    <!-- <div class="field input">
                         <label>Username</label>
                         <input type="text" name="username" id="username" placeholder="Enter your Username" required>
-                    </div>
-                    <div class="field input">
+                    </div> -->
+                    <!-- <div class="field input">
                         <label>Mobile number</label>
                         <input type="number" name="number" id="number" placeholder="Enter your Mobile no" required>
-                    </div>
+                    </div> -->
                     <div class="field input">
                         <label>Password</label>
                         <input type="password" name="password" id="password" placeholder="Enter new password" required>
@@ -102,7 +103,7 @@
                         <input type="file" name="image" accept="image/x-png,image/gif,image/jpeg,image/jpg" required>
                     </div> -->
                     <div class="field button">
-                        <button name="submit">Submit</button>
+                        <button name="submit" onclick="signup_form()">Submit</button>
                         <!-- <input type="button"  onclick="call()"name="submit" value="Submit"> -->
                     </div>
                 </form>
@@ -153,7 +154,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
     <script src="./js/theme.js"></script>
     <script src="./js/google.js"></script>
-    <script src="./js/login.js"></script>
+    <!-- <script src="./js/login.js"></script> -->
 </body>
 
 </html>

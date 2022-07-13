@@ -74,19 +74,50 @@ function storagedata(displayName, photoURL, uid, email) {
           console.log("success");
 }
 
-function signup() {
-          firebase.auth().createUserWithEmailAndPassword(email, password)
-                    .then((userCredential) => {
-                              // Signed in 
-                              var user = userCredential.user;
-                              // ...
-                    })
-                    .catch((error) => {
-                              var errorCode = error.code;
-                              var errorMessage = error.message;
-                              // ..
-                    });
+function signup_form() {
+          var email = document.getElementById("email").value;
+          var password = document.getElementById("password").value;
+          var confirmPassword = document.getElementById("cpassword").value;
+          console.log(confirmPassword, password);
+          //validate that both passwords are same
+          if (password == confirmPassword) {
+                    //Here we will write create Account code
+                    //it takes two param first one email and second is password
+                    firebase.auth().createUserWithEmailAndPassword(email, password).then(
+                              function () {
+                                        //this function executes when account is successfully created
+                                        window.location = "chat_page.html";
+
+                              }).catch(function (error) {
+                                        //this function handles errors
+                                        var errorMessage = error.message;
+                                        alert(errorMessage);
+                              });
+          }
+          else {
+                    //alert when password did not matches
+                    alert("password does not matches");
+          }
 }
+
+function loginUser() {
+          var email = document.getElementById("user_name").value;
+          var password = document.getElementById("password_login").value;
+
+          //firebase have pre built login function
+          //it takes two parameters first email and second is password
+
+          firebase.auth().signInWithEmailAndPassword(email, password).then(function () {
+                    //this function works when login successfully
+
+                    window.location = "chat_page.html";
+          }).catch(function (error) {
+                    //this will handle error
+                    var errorMessage = error.message;
+                    alert(errorMessage);
+          });
+}
+
 
 function logout() {
           // var provider = new firebase.auth.GoogleAuthProvider();
