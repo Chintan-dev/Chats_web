@@ -483,12 +483,12 @@ span {
 }
 
 .scroller {
-    padding: 20px;
+    padding: 10px;
     display: grid;
     grid-auto-flow: row;
     column-gap: 1rem;
     overflow-y: auto;
-    max-height: 76vh;
+    max-height: 83vh;
 }
 
 .scroller::-webkit-scrollbar {
@@ -498,6 +498,11 @@ span {
 .scroller-item {
     display: grid;
     justify-items: center;
+    margin: 5px 0;
+}
+
+.item_name {
+    display: none;
 }
 
 .scroller-item>.item_img {
@@ -526,6 +531,10 @@ span {
 
 .scroller-item img {
     border-radius: 50%;
+}
+
+.storys {
+    /* border: 1px rgb(255, 255, 255) solid; */
 }
 
 
@@ -592,6 +601,10 @@ span {
         width: 100%;
     }
 
+    .item_name {
+        padding: 10px;
+        display: block;
+    }
 
     .scroller {
         width: 100%;
