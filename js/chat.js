@@ -54,6 +54,51 @@ function LoadChatList() {
                     });
           });
 }
+function StartChat(friendKey, friendName, friendPhoto) {
+          var friendList = { friendId: friendKey, userId: currentUserKey };
+          friend_id = friendKey;
+
+          var db = firebase.database().ref('friend_list');
+          var flag = false;
+          db.on('value', function (friends) {
+                    friends.forEach(function (data) {
+                              var user = data.val();
+                              if ((user.friendId === friendList.friendId && user.userId === friendList.userId) || ((user.friendId === friendList.userId && user.userId === friendList.friendId))) {
+                                        flag = true;
+                                        chatKey = data.key;
+                              }
+                    });
+
+                    if (flag === false) {
+                              chatKey = firebase.database().ref('friend_list').push(friendList, function (error) {
+                                        if (error) alert(error);
+                                        else {
+                                                  document.getElementById('chatPanel').removeAttribute('style');
+                                                  document.getElementById('divStart').setAttribute('style', 'display:none');
+                                                  hideChatList();
+                                        }
+                              }).getKey();
+                    }
+                    else {
+                              document.getElementById('chatPanel').removeAttribute('style');
+                              document.getElementById('divStart').setAttribute('style', 'display:none');
+                              hideChatList();
+                    }
+                    //////////////////////////////////////
+                    //display friend name and photo
+                    document.getElementById('divChatName').innerHTML = friendName;
+                    document.getElementById('imgChat').src = friendPhoto;
+
+                    document.getElementById('messages').innerHTML = '';
+
+                    document.getElementById('txtMessage').value = '';
+                    document.getElementById('txtMessage').focus();
+                    ////////////////////////////
+                    // Display The chat messages
+                    LoadChatMessages(chatKey, friendPhoto);
+          });
+}
+
 
 
 

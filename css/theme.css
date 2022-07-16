@@ -479,7 +479,7 @@ span {
 .storys>label {
     letter-spacing: 4px;
     font-size: small;
-    color: #ffffffbd;
+    color: var(--main-text);
 }
 
 .scroller {
