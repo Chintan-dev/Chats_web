@@ -85,7 +85,7 @@ function StartChat(friendKey, friendName, friendPhoto) {
                               document.getElementById('divStart').setAttribute('style', 'display:none');
                               hideChatList();
                     }
-                    //////////////////////////////////////
+                    ///////////////////////////
                     //display friend name and photo
                     document.getElementById('divChatName').innerHTML = friendName;
                     document.getElementById('imgChat').src = friendPhoto;
