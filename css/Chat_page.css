@@ -69,18 +69,18 @@ article {
 }
 
 .user_box:focus {
-    background: var(--header_box_c);
+    background: var(--main-bg);
     border-radius: 20px;
     opacity: 1;
     border: none;
 }
 
-/* .scrollbox>.user_box:target {
+.scrollbox>.user_box:target {
     background: var(--header_box_c);
     border-radius: 20px;
     opacity: 1;
     border: none;
-} */
+}
 
 
 /* .scrollbox1 {
@@ -109,7 +109,7 @@ article {
 #header {
     visibility: collapse;
     background-color: var(--header_box_c);
-    border-radius: 20px;
+    border-radius: 20px 20px 0 0;
 }
 
 #user_chats {

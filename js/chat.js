@@ -54,6 +54,7 @@ function LoadChatList() {
                     });
           });
 }
+
 function StartChat(friendKey, friendName, friendPhoto) {
           var friendList = { friendId: friendKey, userId: currentUserKey };
           friend_id = friendKey;
