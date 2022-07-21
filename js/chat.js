@@ -1,4 +1,6 @@
+
 const { displayName, photoURL, uid, email } = JSON.parse(localStorage.getItem('login_data'));
+
 if (uid) {
           const { displayName, photoURL, uid, email } = JSON.parse(localStorage.getItem('login_data'));
           document.getElementById("user_img").src = photoURL;
@@ -7,6 +9,13 @@ if (uid) {
           //logout();
           window.location = "login.html";
 }
+
+var i = 1;
+while (i <= 5) {
+          document.write("<p>The number is " + i + "</p>");
+          i++;
+}
+
 
 
 function LoadChatList() {

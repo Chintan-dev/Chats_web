@@ -74,6 +74,7 @@ function storagedata(displayName, photoURL, uid, email) {
           console.log("success");
 }
 
+
 function signup_form() {
           var email = document.getElementById("email").value;
           var password = document.getElementById("password").value;
@@ -130,4 +131,31 @@ function logout() {
           }).catch((error) => {
                     // An error happened.
           });
+}
+
+
+
+
+
+// valedetion
+let i = 0;
+function pass_checking() {
+          console.log(i++);
+          var newPassword = document.getElementById('password').value;
+          // var minNumberofChars = 6;
+          // var maxNumberofChars = 16;
+          // var regularExpression = /^[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+          // // alert(newPassword);
+          // if (newPassword.length < minNumberofChars || newPassword.length > maxNumberofChars) {
+          //           // return false;
+          // }
+          // if (!regularExpression.test(newPassword)) {
+          //           console.log("password should contain atleast one number and one special character");
+          //           // alert("password should contain atleast one number and one special character");
+          //           return false;
+          // }      
+
+          var re = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+          return re.test(str);
+
 }
