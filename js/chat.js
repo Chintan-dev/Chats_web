@@ -4,17 +4,12 @@ const { displayName, photoURL, uid, email } = JSON.parse(localStorage.getItem('l
 if (uid) {
           const { displayName, photoURL, uid, email } = JSON.parse(localStorage.getItem('login_data'));
           document.getElementById("user_img").src = photoURL;
-          LoadChatList()
+          LoadChatList();
 } else {
           //logout();
           window.location = "login.html";
 }
 
-var i = 1;
-while (i <= 5) {
-          document.write("<p>The number is " + i + "</p>");
-          i++;
-}
 
 
 

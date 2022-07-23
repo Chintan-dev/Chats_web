@@ -3,6 +3,7 @@ article {
     max-height: 630px;
     flex-direction: row;
     align-items: stretch;
+    margin-top: 10px;
 }
 
 .user_list,
