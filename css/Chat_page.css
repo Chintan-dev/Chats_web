@@ -15,6 +15,7 @@ article {
     background-color: var(--main-box-color);
     backdrop-filter: var(--backdrop-filter);
     box-shadow: var(--main-box-shadow);
+    -webkit-backdrop-filter: var(--backdrop-filter);
     border-radius: 20px;
     position: relative;
 }
