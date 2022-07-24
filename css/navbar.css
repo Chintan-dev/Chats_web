@@ -71,7 +71,7 @@
            line-height: 75px;
            text-align: center;
            transition: 0.5s;
-           color: var(--main-text);
+           color: #fff;
  }
 
  .navigation ul li.active a .icon {

@@ -115,14 +115,14 @@ function send_msg() {
 }
 
 function clickme(f_id) {
-          firebase.database().ref('Datas/users').child(f_id).on('value', function (data) {
-                    var user = data.val();
-                    document.getElementById('f_name').innerHTML = user.displayName;
-                    document.getElementById('f_img').src = user.photoURL;
+          // firebase.database().ref('Datas/users').child(f_id).on('value', function (data) {
+          //           var user = data.val();
+          //           document.getElementById('f_name').innerHTML = user.displayName;
+          //           document.getElementById('f_img').src = user.photoURL;
 
-                    var btn = document.getElementById(f_id);
-                    btn.classList.toggle("active");
-          });
+          //           var btn = document.getElementById(f_id);
+          //           btn.classList.toggle("active");
+          // });
 
           document.getElementById('user_chats').style.visibility = "visible";
           document.getElementById('header').style.visibility = "visible";

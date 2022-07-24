@@ -18,7 +18,7 @@
     --main-shadow: rgb(145 145 145 / 43%);
     --main-box-color: #ffffff10;
     --main-box-shadow: 0px 0px 32px 2px rgb(0 0 0 / 10%);
-    /* box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1); */
+    --color: #fff;
     --backdrop-filter: blur(12px);
 
     --btn-bg: rgb(0, 0, 0);
@@ -41,6 +41,7 @@
     --border: 1px red solid;
     --btn-bg: rgb(255, 255, 255);
     --btn-t: translateX(16px);
+    --color: #3A3C47;
     --header_box_c: #3A3C47;
     --scroll_b_color: rgba(255, 255, 255, 0.4);
     --scroll_color: rgba(255, 255, 255, 0.6);
@@ -622,11 +623,13 @@ span {
         width: 100%;
         height: auto;
         background-color: rgba(0, 0, 0, 0);
+        backdrop-filter: none;
+        box-shadow: none;
         text-align: unset;
     }
 
     .item_name {
-        padding: 10px;
+        padding: 5px;
         display: block;
     }
 
