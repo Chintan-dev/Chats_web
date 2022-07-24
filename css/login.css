@@ -24,6 +24,8 @@
 
 .form {
     padding: 25px 30px;
+    backdrop-filter: var(--backdrop-filter);
+    /* background-color: var(--main-box-color); */
 }
 
 .form header {

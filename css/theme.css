@@ -10,9 +10,9 @@
 }
 
 :root {
-    /* --main-bg: #ffffffc8;
-    --main-bg: linear-gradient(#9EF9D8, #CAF6BF);
-    --main-bg: linear-gradient(120deg, #9DFFB3, #1AA37A); */
+    --login-bg: #ffffffc8;
+    /* --main-bg: linear-gradient(#9EF9D8, #CAF6BF); */
+    --main-bg: linear-gradient(120deg, #9DFFB3, #1AA37A);
     --main-bg: url(../img/11.jpg);
     --main-text: #333;
     --main-shadow: rgb(145 145 145 / 43%);
@@ -494,6 +494,7 @@ span {
     background-color: var(--main-box-color);
     backdrop-filter: var(--backdrop-filter);
     box-shadow: var(--main-box-shadow);
+    -webkit-backdrop-filter: var(--backdrop-filter);
     border-radius: 20px;
     height: 100%;
     text-align: center;

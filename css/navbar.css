@@ -30,7 +30,8 @@
            /* width: 350px;
           height: 70px; */
            border-radius: 20px;
-           backdrop-filter: blur(10px);
+           backdrop-filter: var(--backdrop-filter);
+           -webkit-backdrop-filter: var(--backdrop-filter);
            background-color: var(--main-box-color);
            /* box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1); */
            box-shadow: var(--main-box-shadow);
