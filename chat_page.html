@@ -89,7 +89,7 @@
 
             <div class="user_list">
                 <div class="scrollbox" id="listChat">
-                    <div class="user_box" onclick="clickme()">
+                    <!-- <div class="user_box" onclick="clickme()">
                         <div class="img_user">
                             <img src="./img/profiles/1.webp" alt="loading">
                         </div>
@@ -107,7 +107,7 @@
                             </div>
                             <div class="notification_no">20</div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
@@ -213,7 +213,7 @@
                                 <span class="title">Messages</span>
                             </a>
                         </li> -->
-                        <li class="list" data-color="#05c46b">
+                        <li class="list search_boxs" data-color="#05c46b" onclick="search()">
                             <a href="#">
                                 <span class="icon">
                                     <i>
@@ -287,6 +287,32 @@
                     </div>
                     `;
         img++;
+    }
+    let val = 1;
+    let users = 8;
+    while (val <= users) {
+        document.getElementById('listChat').innerHTML += `
+        <div class="user_box" onclick="clickme()">
+            <div class="img_user">
+                <img src="./img/profiles/${val}.webp" alt="loading">
+            </div>
+            <div class="user_name_chats">
+                <div class="chart_name">
+                    Test user
+                </div>
+                <div class="chats_shot">
+                    hiii , bro
+                </div>
+            </div>
+            <div class="time_no">
+                <div class="time">
+                    10:20pm
+                </div>
+                <div class="notification_no">${val}</div>
+            </div>
+        </div>
+        `;
+        val++;
     }
 </script>
 <script src="./js/navbar.js"></script>

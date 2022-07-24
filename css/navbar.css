@@ -217,9 +217,8 @@
            }
 
            .navigation ul li:hover a .title {
-                     opacity: 1;
-                     visibility: visible;
-                     transform: translate(-70%, 50%);
+                     opacity: 0;
+                     visibility: hidden;
            }
 
            .navigation ul li a .title::before {
