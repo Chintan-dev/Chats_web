@@ -142,20 +142,30 @@ let i = 0;
 function pass_checking() {
           console.log(i++);
           var newPassword = document.getElementById('password').value;
-          // var minNumberofChars = 6;
-          // var maxNumberofChars = 16;
-          // var regularExpression = /^[a-zA-Z0-9!@#$%^&*]{6,16}$/;
-          // // alert(newPassword);
+          var minNumberofChars = 6;
+          var maxNumberofChars = 16;
+          var regularExpression = /^[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+          // alert(newPassword);
           // if (newPassword.length < minNumberofChars || newPassword.length > maxNumberofChars) {
           //           // return false;
+          //           console.log("worink");
           // }
           // if (!regularExpression.test(newPassword)) {
           //           console.log("password should contain atleast one number and one special character");
           //           // alert("password should contain atleast one number and one special character");
           //           return false;
-          // }      
+          // }
 
           var re = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-          return re.test(str);
+          console.log(re);
+          return re.test(newPassword);
+}
 
+function phone() {
+          var phone = document.getElementById('number').value;
+          console.log(phone);
+          var phoneRGEX = /^[(]{0,1}[1,2]{3}[)]{0,1} [-\s\.]{0,1}[0-9]{3}{-\s\.]{0,1}[0-9]{4}$/;
+          var phone_result = phoneRGEX.test(phone);
+          console.log();
+          localStorage.setItem(phone_no, phone)
 }
