@@ -13,9 +13,12 @@ article {
 .user_list,
 .chats {
     background-color: var(--main-box-color);
-    -webkit-backdrop-filter: var(--backdrop-filter);
+    -webkit-backdrop-filter: blur(10 px) !important;
+    -moz-backdrop-filter: blur(10px) !important;
+    backdrop-filter: blur(10px) !important;
+    /* -webkit-backdrop-filter: var(--backdrop-filter);
     backdrop-filter: var(--backdrop-filter);
-    box-shadow: var(--main-box-shadow);
+    box-shadow: var(--main-box-shadow); */
 
     border-radius: 20px;
     position: relative;
