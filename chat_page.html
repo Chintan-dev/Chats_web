@@ -25,7 +25,6 @@
         </span>
         <div class="header_s">
             <input type="text" name="search" id="search" placeholder="Search.....">
-
         </div>
         <div class="list_user" id="get_data"></div>
     </div>
@@ -274,7 +273,7 @@
 
 <script>
     var img = 1;
-    var no_of_imgs = 15;
+    var no_of_imgs = 16;
     while (img <= no_of_imgs) {
         document.getElementById('storys_load').innerHTML += `
                     <div class="scroller-item">
@@ -289,7 +288,7 @@
         img++;
     }
     let val = 1;
-    let users = 8;
+    let users = 19;
     while (val <= users) {
         document.getElementById('listChat').innerHTML += `
         <div class="user_box" onclick="clickme()">
@@ -312,7 +311,22 @@
             </div>
         </div>
         `;
+
+        document.getElementById('get_data').innerHTML += `<div class="users_info">
+                              <div class="box_s">
+                                  <div class="img_s">
+                                      <img src="./img/profiles/${val}.webp" alt="404" id="photoURl" alt="">
+                                  </div>
+                                  <div class="username_s" id="displayName">
+                                          user_${val}
+                                  </div>
+                              </div>
+                              <div class="connect" id="${val}" onclick="msg_id_send_in_db(this.id)">
+                                  <button>connect</button>
+                              </div>
+                          </div>`;
         val++;
+
     }
 </script>
 <script src="./js/navbar.js"></script>

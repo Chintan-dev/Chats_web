@@ -7,18 +7,18 @@ article {
     max-height: 96vh;
     align-items: stretch;
     justify-content: center;
-
+    T
 }
 
 .user_list,
 .chats {
     background-color: var(--main-box-color);
-    -webkit-backdrop-filter: blur(10 px) !important;
+    /* -webkit-backdrop-filter: blur(10 px) !important;
     -moz-backdrop-filter: blur(10px) !important;
-    backdrop-filter: blur(10px) !important;
-    /* -webkit-backdrop-filter: var(--backdrop-filter);
-    backdrop-filter: var(--backdrop-filter);
-    box-shadow: var(--main-box-shadow); */
+    backdrop-filter: blur(10px) !important; */
+    -webkit-backdrop-filter: var(--backdrop-filter) !important;
+    backdrop-filter: var(--backdrop-filter) !important;
+    box-shadow: var(--main-box-shadow);
 
     border-radius: 20px;
     position: relative;
@@ -59,7 +59,8 @@ article {
     /* margin: 10px 10px 0 0; */
     overflow-y: auto;
     scroll-behavior: smooth;
-    max-height: 76vh;
+    /* max-height: 76vh; */
+    height: 100%;
     /* border: var(--border); */
     margin: 5px;
     border-radius: 20px;
