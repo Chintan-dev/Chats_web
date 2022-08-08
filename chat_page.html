@@ -299,6 +299,26 @@
                                 </div> -->
                             </a>
                         </li>
+                        <!-- <li class="list" data-color="#3c40c6">
+                            <a href="#">
+                                <span class="icon">
+                                    <i>
+                                        <ion-icon class="icon" name="chatbubble-outline"></ion-icon>
+                                    </i>
+                                </span>
+                                <span class="title">Messages</span>
+                            </a>
+                        </li> -->
+                        <li class="list" data-color="#3c40c6">
+                            <a href="#">
+                                <span class="icon">
+                                    <i>
+                                        <ion-icon class="icon" name="log-out-outline" onclick="logout()"></ion-icon>
+                                    </i>
+                                </span>
+                                <span class="title">Logout</span>
+                            </a>
+                        </li>
                         <div class="indicator"></div>
                     </ul>
                 </div>
@@ -356,17 +376,17 @@
         // `;
 
 
-        // document.getElementById('listChat').innerHTML += `
-        //     <div class="user_box" id="${val}" onclick="clickme(this.id)">
-        //         <div class="img_user skeleton"></div>
-        //         <div class="user_name_chats">
-        //             <div class="chart_name">
-        //                 <div class="skeleton skeleton-text"></div>
-        //                 <div class="skeleton skeleton-text"></div>
-        //             </div>
-        //         </div>
-        //     </div>
-        // `;
+        document.getElementById('listChat').innerHTML += `
+            <div class="user_box" id="${val}" onclick="clickme(this.id)">
+                <div class="img_user skeleton"></div>
+                <div class="user_name_chats">
+                    <div class="chart_name">
+                        <div class="skeleton skeleton-text"></div>
+                        <div class="skeleton skeleton-text"></div>
+                    </div>
+                </div>
+            </div>
+        `;
         val++;
     }
     let val1 = 1;
