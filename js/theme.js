@@ -1,8 +1,8 @@
 const body = document.querySelector('body')
 const initialTheme = 'light'
-document.getElementById('toggle').innerHTML = `
-    <img src="./img/toggle_img/${initialTheme}.svg" alt="">
-`;
+// document.getElementById('toggle').innerHTML = `
+//     <img src="./img/toggle_img/${initialTheme}.svg" alt="">
+// `;
 
 const setTheme = (theme) => {
     localStorage.setItem('theme', theme)
@@ -15,23 +15,23 @@ const ToggleTheme = () => {
 
     if (activeTheme === 'light') {
         setTheme('dark');
-        document.getElementById('toggle').innerHTML = `
-        <img src="./img/toggle_img/${activeTheme}.svg" alt="">
-        `;
+        // document.getElementById('toggle').innerHTML = `
+        // <img src="./img/toggle_img/${activeTheme}.svg" alt="">
+        // `;
     } else {
         setTheme('light');
-        document.getElementById('toggle').innerHTML = `
-        <img src="./img/toggle_img/${activeTheme}.svg" alt="">
-        `;
+        // document.getElementById('toggle').innerHTML = `
+        // <img src="./img/toggle_img/${activeTheme}.svg" alt="">
+        // `;
 
     }
 }
 
 const setThemeOnInit = () => {
     const savadTheme = localStorage.getItem('theme');
-    document.getElementById('toggle').innerHTML = `
-        <img src="./img/toggle_img/${savadTheme}.png" alt="">
-        `;
+    // document.getElementById('toggle').innerHTML = `
+    //     <img src="./img/toggle_img/${savadTheme}.png" alt="">
+    //     `;
 
     savadTheme
         ?
