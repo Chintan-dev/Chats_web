@@ -1,4 +1,7 @@
 /* Login & Signup Form CSS Start */
+body {
+    color: var(--main-text_login);
+}
 
 .container {
     display: flex;
@@ -133,7 +136,7 @@
 }
 
 .form .link a {
-    color: var(--main-text)
+    color: var(--main-text_login)
 }
 
 .form .link a:hover {

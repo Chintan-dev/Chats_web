@@ -74,8 +74,6 @@
             </div>
         </header>
 
-
-
         <Article>
             <!-- oncontextmenu="return false" -->
 
@@ -85,32 +83,18 @@
                     <!-- all storys_load with js -->
                 </div>
             </div>
-
             <div class="user_list">
+                <!-- skeleton skeleton-text -->
+                <header class="haeder_search_bar">
+                    <input type="search" name="" id="">
+                </header>
                 <div class="scrollbox" id="listChat">
-                    <!-- <div class="user_box" onclick="clickme()">
-                        <div class="img_user">
-                            <img src="./img/profiles/1.webp" alt="loading">
-                        </div>
-                        <div class="user_name_chats">
-                            <div class="chart_name">
-                                Test user
-                            </div>
-                            <div class="chats_shot">
-                                hiii , bro
-                            </div>
-                        </div>
-                        <div class="time_no">
-                            <div class="time">
-                                10:20pm
-                            </div>
-                            <div class="notification_no">20</div>
-                        </div>
-                    </div> -->
+                    <!-- chat history load  -->
                 </div>
             </div>
 
             <div class="chats" id="chats">
+                <!-- background-image:url(./img/10.jpg);background-repeat: no-repeat;background-position: center; -->
                 <header id="header">
                     <div class="back" onclick="back_to_chats()">
                         <ion-icon class="icon" class="arrow_back" name="arrow-back-outline">
@@ -181,6 +165,56 @@
                             </div>
                         </div>
                     </div>
+                    <!-- <div class="chat-box scrollbox1 active">
+                        <div class="chat incoming">
+                            <img src="./img/1.jpg" class="incoming_img" alt="">
+                            <div class="details">
+                                <p>Hello 👋</p>
+                            </div>
+                        </div>
+                        <div class="chat outgoing">
+                            <div class="details">
+                                <p>Hiii brooo</p>
+                            </div>
+                        </div>
+                        <div class="chat outgoing">
+                            <div class="details">
+                                <p>tu pagal</p>
+                            </div>
+                        </div>
+                        <div class="chat outgoing">
+                            <div class="details">
+                                <p>20₹</p>
+                            </div>
+                        </div>
+                        <div class="chat incoming">
+                            <img src="./img/1.jpg" class="incoming_img" alt="">
+                            <div class="details">
+                                <p>Hello 👋</p>
+                            </div>
+                        </div>
+                        <div class="chat outgoing">
+                            <div class="details">
+                                <p>Hiii brooo</p>
+                            </div>
+                        </div>
+                        <div class="chat incoming">
+                            <img src="./img/1.jpg" class="incoming_img" alt="">
+                            <div class="details">
+                                <p>Hello 👋</p>
+                            </div>
+                        </div>
+                        <div class="chat outgoing">
+                            <div class="details">
+                                <p>Hiii brooo</p>
+                            </div>
+                        </div>
+                        <div class="chat outgoing">
+                            <div class="details">
+                                <p>tu pagal</p>
+                            </div>
+                        </div>
+                    </div> -->
                     <div class="send_chats">
                         <input type="text" id="message" class="send_box" name="" id="">
                         <!-- <input type="submit" value=""> -->
@@ -243,10 +277,14 @@
                             </a>
                         </li>
                         <li class="list" data-color="#ffa801">
-                            <a href="#">
-                                <div class="Togglebtn">
-                                    <button class="btn" onclick="ToggleTheme()"></button>
-                                </div>
+                            <a href="#" onclick="ToggleTheme()" id="toggle">
+                                <!-- <img src="./img/toggle_img/dark.png" alt=""> -->
+                                <!-- <img src="./img/toggle_img/light.svg" alt=""> -->
+                                <!-- id="toggle" -->
+                                <!-- <img src="../img/toggle_img/dark.png" alt=""> -->
+                                <!-- <div class="Togglebtn">
+                                    <button class="btn"></button>
+                                </div> -->
                             </a>
                         </li>
                         <div class="indicator"></div>
@@ -288,44 +326,55 @@
         img++;
     }
     let val = 1;
-    let users = 19;
+    let users = 5;
     while (val <= users) {
-        document.getElementById('listChat').innerHTML += `
-        <div class="user_box" onclick="clickme()">
-            <div class="img_user">
-                <img src="./img/profiles/${val}.webp" alt="loading">
-            </div>
-            <div class="user_name_chats">
-                <div class="chart_name">
-                    Test user
-                </div>
-                <div class="chats_shot">
-                    hiii , bro
-                </div>
-            </div>
-            <div class="time_no">
-                <div class="time">
-                    10:20pm
-                </div>
-                <div class="notification_no">${val}</div>
-            </div>
-        </div>
-        `;
+        // document.getElementById('listChat').innerHTML += `
+        // <div class="user_box " id="${val}" onclick="clickme(this.id)">
+        //     <div class="img_user">
+        //                 <img src="./img/profiles/${val}.webp" alt="loading">
+        //     </div>
+        //     <div class="user_name_chats">
+        //                 <div class="chart_name">test_user_${val}</div>
+        //                 <div class="chats_shot">hiii , bro</div>
+        //     </div>
+        //     <div class="time_no">
+        //                 <div class="time">10:20pm</div>
+        //     <div class="notification_no">${val}</div>
+        // </div>
+        // `;
 
-        document.getElementById('get_data').innerHTML += `<div class="users_info">
-                              <div class="box_s">
-                                  <div class="img_s">
-                                      <img src="./img/profiles/${val}.webp" alt="404" id="photoURl" alt="">
-                                  </div>
-                                  <div class="username_s" id="displayName">
-                                          user_${val}
-                                  </div>
-                              </div>
-                              <div class="connect" id="${val}" onclick="msg_id_send_in_db(this.id)">
-                                  <button>connect</button>
-                              </div>
-                          </div>`;
+
+        // document.getElementById('listChat').innerHTML += `
+        //     <div class="user_box" id="${val}" onclick="clickme(this.id)">
+        //         <div class="img_user skeleton"></div>
+        //         <div class="user_name_chats">
+        //             <div class="chart_name">
+        //                 <div class="skeleton skeleton-text"></div>
+        //                 <div class="skeleton skeleton-text"></div>
+        //             </div>
+        //         </div>
+        //     </div>
+        // `;
         val++;
+    }
+    let val1 = 1;
+    let users1 = 19;
+    while (val1 <= users1) {
+        document.getElementById('get_data').innerHTML += `
+                        <div  class="users_info" >
+                            <div class="box_s">
+                                <div class="img_s">
+                                    <img src="./img/profiles/${val1}.webp" alt="404" id="photoURl" alt="">
+                                </div>
+                                <div class="username_s" id="displayName">
+                                        user_${val1}
+                                </div>
+                            </div>
+                            <div class="connect" id="${val1}" onclick="msg_id_send_in_db(this.id)">
+                                <button>connect</button>
+                            </div>
+                        </div>`;
+        val1++;
 
     }
 </script>
