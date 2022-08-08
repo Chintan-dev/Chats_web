@@ -123,14 +123,30 @@ function loginUser() {
 function logout() {
     // var provider = new firebase.auth.GoogleAuthProvider();
     // firebase.auth()
-    localStorage.removeItem("login_data");
-    window.location = "login.html";
 
-    firebase.auth().signOut().then(() => {
-        alert("Sign-out successful.")
-    }).catch((error) => {
-        // An error happened.
-    });
+    swal({
+        title: "Are you sure?",
+        text: "You want to logout!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    })
+        .then((willDelete) => {
+            if (willDelete) {
+                localStorage.removeItem("login_data");
+                window.location = "login.html";
+
+                firebase.auth().signOut().then(() => {
+                    // alert("Sign-out successful.")
+                    console.log("Sign-out successful.");
+                }).catch((error) => {
+                    // An error happened.
+                });
+                // document.location.href = href = "login.html;";
+            } else {
+                swal("welcome back!");
+            }
+        });
 }
 
 
