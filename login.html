@@ -10,6 +10,14 @@
     <link rel="stylesheet" href="./css/login.css">
     <script src="./js/alerts-boxes/js/sweetalert.min.js"></script>
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+    <!-- <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script> -->
+    <!-- <script>
+        var { uid } = JSON.parse(localStorage.getItem('User_data'));
+        if (uid) {
+            window.location = "index.html";
+        }
+    </script> -->
 </head>
 
 <body>
@@ -78,15 +86,15 @@
                         <label>Username</label>
                         <input type="text" name="username" id="username" placeholder="Enter your Username" required>
                     </div>
-                    <div class="field input">
+                    <!-- <div class="field input">
                         <label>Mobile number</label>
                         <input type="number" name="number" id="number" onkeypress="phone()"
                             placeholder="Enter your Mobile no" required>
-                    </div>
+                    </div> -->
                     <div class="field input">
                         <label>Password</label>
-                        <input type="password" name="password" onkeypress="pass_checking()" id="password"
-                            placeholder="Enter new password" required>
+                        <!-- onkeypress="pass_checking()" -->
+                        <input type="password" name="password" id="password" placeholder="Enter new password" required>
                         <i class="fas fa-eye"></i>
                     </div>
                     <div class="field input">
@@ -106,7 +114,7 @@
                         <input type="file" name="image" accept="image/x-png,image/gif,image/jpeg,image/jpg" required>
                     </div> -->
                     <div class="field button">
-                        <button name="submit" onclick="signup_form()">Submit</button>
+                        <button name="click" onclick="signup_form()">Submit</button>
                         <!-- <input type="button"  onclick="call()"name="submit" value="Submit"> -->
                     </div>
                 </form>
@@ -153,8 +161,10 @@
 
 
     <!-- firebase -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.8.4/firebase.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/9.8.4/firebase.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+
+
     <script src="./js/theme.js"></script>
     <script src="./js/google.js"></script>
     <!-- <script src="./js/login.js"></script> -->

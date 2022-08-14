@@ -459,6 +459,7 @@ article {
         margin: 0;
         height: min(567px);
         border-radius: 30px;
+        height: 70%;
     }
 
     .user_name_chats {

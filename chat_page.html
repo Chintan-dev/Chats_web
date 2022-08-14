@@ -12,18 +12,6 @@
     <script src="./js/alerts-boxes/js/sweetalert.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script>
-        const { displayName, photoURL, uid, email } = JSON.parse(localStorage.getItem('login_data'));
-        document.getElementById('chats').style = `background-image:url(./img/bg.png);background-repeat: no-repeat;background-position: center;`
-
-        if (uid) {
-            const { displayName, photoURL, uid, email } = JSON.parse(localStorage.getItem('login_data'));
-            document.getElementById("user_img").src = photoURL;
-        } else {
-            //logout();
-            window.location = "login.html";
-        }
-    </script>
 </head>
 
 <body>
@@ -72,7 +60,7 @@
                         <img src="http://f1s.000webhostapp.com/images/avatar/avatar5.png" />
                     </div> -->
                     <div class="icon_box User">
-                        <img src="./img/profiles/1.webp" id="user_img" alt="" srcset="">
+                        <!-- <img src="./img/profiles/1.webp" id="user_img" alt="" srcset=""> -->
                     </div>
 
                     <ul class="User-Dropdown ">
@@ -239,7 +227,7 @@
             <div class="header_mobile">
                 <div class="navigation">
                     <ul>
-                        <li class="list active" data-color="#dc143c">
+                        <!-- <li class="list active" data-color="#dc143c">
                             <a href="#">
                                 <span class="icon">
                                     <i>
@@ -248,8 +236,8 @@
                                 </span>
                                 <span class="title">Home</span>
                             </a>
-                        </li>
-                        <!-- <li class="list" data-color="#3c40c6">
+                        </li> -->
+                        <li class="list" data-color="#3c40c6">
                             <a href="#">
                                 <span class="icon">
                                     <i>
@@ -258,7 +246,7 @@
                                 </span>
                                 <span class="title">Messages</span>
                             </a>
-                        </li> -->
+                        </li>
                         <li class="list search_boxs" data-color="#05c46b" onclick="search()">
                             <a href="#">
                                 <span class="icon">
@@ -291,25 +279,12 @@
                         </li>
                         <li class="list" data-color="#ffa801">
                             <a href="#" onclick="ToggleTheme()" id="toggle">
-                                <!-- <img src="./img/toggle_img/dark.png" alt=""> -->
-                                <!-- <img src="./img/toggle_img/light.svg" alt=""> -->
-                                <!-- id="toggle" -->
-                                <!-- <img src="../img/toggle_img/dark.png" alt=""> -->
                                 <!-- <div class="Togglebtn">
                                     <button class="btn"></button>
                                 </div> -->
                             </a>
                         </li>
-                        <!-- <li class="list" data-color="#3c40c6">
-                            <a href="#">
-                                <span class="icon">
-                                    <i>
-                                        <ion-icon class="icon" name="chatbubble-outline"></ion-icon>
-                                    </i>
-                                </span>
-                                <span class="title">Messages</span>
-                            </a>
-                        </li> -->
+
                         <li class="list" data-color="#3c40c6">
                             <a href="#">
                                 <span class="icon">
@@ -328,23 +303,19 @@
         </Article>
     </section>
 </body>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
-<script src="./js/google.js"></script>
-
-
-<script src="./js/main.js"></script>
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-<script src="./js/ionicons.esm.js"></script>
-<script src="./js/ionicons.js"></script>
-<script src="./js/theme_chat.js"></script>
-<script src="./js/chat.js"></script>
-<script src="./js/commen.js"></script>
-
 <script>
     var img = 1;
     var no_of_imgs = 16;
+    document.getElementById('storys_load').innerHTML += `
+                    <div class="scroller-item">
+                            <div class="item_img">
+                                    <img src="" id="user_img" alt="">
+                            </div>
+                            <div class="item_name">
+                                    you
+                            </div>
+                    </div>
+                    `;
     while (img <= no_of_imgs) {
         document.getElementById('storys_load').innerHTML += `
                     <div class="scroller-item">
@@ -358,59 +329,41 @@
                     `;
         img++;
     }
-    let val = 1;
-    let users = 5;
-    while (val <= users) {
-        // document.getElementById('listChat').innerHTML += `
-        // <div class="user_box " id="${val}" onclick="clickme(this.id)">
-        //     <div class="img_user">
-        //                 <img src="./img/profiles/${val}.webp" alt="loading">
-        //     </div>
-        //     <div class="user_name_chats">
-        //                 <div class="chart_name">test_user_${val}</div>
-        //                 <div class="chats_shot">hiii , bro</div>
-        //     </div>
-        //     <div class="time_no">
-        //                 <div class="time">10:20pm</div>
-        //     <div class="notification_no">${val}</div>
-        // </div>
-        // `;
 
+    // let val1 = 1;
+    // let users1 = 19;
+    // while (val1 <= users1) {
+    //     document.getElementById('get_data').innerHTML += `
+    //                     <div  class="users_info" >
+    //                         <div class="box_s">
+    //                             <div class="img_s">
+    //                                 <img src="./img/profiles/${val1}.webp" alt="404" id="photoURl" alt="">
+    //                             </div>
+    //                             <div class="username_s" id="displayName">
+    //                                     user_${val1}
+    //                             </div>
+    //                         </div>
+    //                         <div class="connect" id="${val1}" onclick="msg_id_send_in_db(this.id)">
+    //                             <button>connect</button>
+    //                         </div>
+    //                     </div>`;
+    //     val1++;
 
-        document.getElementById('listChat').innerHTML += `
-            <div class="user_box" id="${val}" onclick="clickme(this.id)">
-                <div class="img_user skeleton"></div>
-                <div class="user_name_chats">
-                    <div class="chart_name">
-                        <div class="skeleton skeleton-text"></div>
-                        <div class="skeleton skeleton-text"></div>
-                    </div>
-                </div>
-            </div>
-        `;
-        val++;
-    }
-    let val1 = 1;
-    let users1 = 19;
-    while (val1 <= users1) {
-        document.getElementById('get_data').innerHTML += `
-                        <div  class="users_info" >
-                            <div class="box_s">
-                                <div class="img_s">
-                                    <img src="./img/profiles/${val1}.webp" alt="404" id="photoURl" alt="">
-                                </div>
-                                <div class="username_s" id="displayName">
-                                        user_${val1}
-                                </div>
-                            </div>
-                            <div class="connect" id="${val1}" onclick="msg_id_send_in_db(this.id)">
-                                <button>connect</button>
-                            </div>
-                        </div>`;
-        val1++;
-
-    }
+    // }
 </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+<script src="./js/google.js"></script>
+
+
+<script src="./js/main.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script src="./js/ionicons.esm.js"></script>
+<script src="./js/ionicons.js"></script>
+<script src="./js/theme_chat.js"></script>
+<script src="./js/chat.js"></script>
+<script src="./js/commen.js"></script>
 <script src="./js/navbar.js"></script>
 
 </html>

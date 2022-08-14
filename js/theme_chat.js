@@ -2,6 +2,7 @@ const body = document.querySelector('body')
 const initialTheme = 'light'
 document.getElementById('toggle').innerHTML = `
     <img src="./img/toggle_img/${initialTheme}.svg" alt="">
+    <span class="title">theme</span>
 `;
 
 const setTheme = (theme) => {
@@ -17,11 +18,13 @@ const ToggleTheme = () => {
         setTheme('dark');
         document.getElementById('toggle').innerHTML = `
         <img src="./img/toggle_img/${activeTheme}.svg" alt="">
+        <span class="title">theme</span>
         `;
     } else {
         setTheme('light');
         document.getElementById('toggle').innerHTML = `
         <img src="./img/toggle_img/${activeTheme}.svg" alt="">
+        <span class="title">theme</span>
         `;
 
     }
@@ -31,6 +34,7 @@ const setThemeOnInit = () => {
     const savadTheme = localStorage.getItem('theme');
     document.getElementById('toggle').innerHTML = `
         <img src="./img/toggle_img/${savadTheme}.png" alt="">
+        <span class="title">theme</span>
         `;
 
     savadTheme
