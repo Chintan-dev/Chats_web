@@ -233,27 +233,33 @@ function LoadChatMessages(chatKey, friendPhoto) {
          });
  
           document.getElementById('messages_display').innerHTML = messageDisplay;
-          //document.getElementById('messages').scrollTo(0, document.getElementById('messages').scrollHeight);
+          document.getElementById('messages_display').scrollTo(0, document.getElementById('messages_display').scrollHeight);
      });
 }
 
 function SendMessage() {
-     var chatMessage = {
-         uid: currentUserKey,
-         msg: document.getElementById('message').value,
-         msgType: 'normal',
-         dateTime: new Date().toLocaleString()
-     };
-     console.log(chatKey);
-     console.log(chatMessage);
-     document.getElementById('message').value = '';
- 
-     firebase.database().ref('chatMessages').child(chatKey).push(chatMessage, function (error) {
-          if (error) alert(error);
-         else {
-               console.log("done");
-         }
-     });
+     var msg =document.getElementById('message').value;
+     if(msg!==''){
+          var chatMessage = {
+               uid: currentUserKey,
+               msg: msg,
+               msgType: 'normal',
+               dateTime: new Date().toLocaleString()
+           };
+           console.log(chatKey);
+           console.log(chatMessage);
+           document.getElementById('message').value = '';
+       
+           firebase.database().ref('chatMessages').child(chatKey).push(chatMessage, function (error) {
+                if (error) alert(error);
+               else {
+                     console.log("done");
+               }
+           });
+     }else{
+          alert("msg is empty");
+     }
+    
  }
 
 function back_to_chats() {

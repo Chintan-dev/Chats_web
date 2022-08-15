@@ -419,6 +419,10 @@ article {
 
 @media (max-width:700px) {
 
+    .user_chats_img {
+        width: 5rem;
+    }
+
     html,
     body {
         max-width: 100%;
@@ -450,10 +454,11 @@ article {
         top: 0;
         right: -102%;
         border-radius: 0;
+        z-index: 1000;
     }
 
     .user_chats {
-        height: 110%;
+        height: 90%;
     }
 
     .chat-box {
