@@ -61,7 +61,13 @@ function GoogleLogin() {
                     Username: Username
                 }
                 // add data in database with push() -> push can created uquny id
-                firebase.database().ref('users/' + user.uid).set(User_data_o);
+                firebase.database().ref('users/' + user.uid).set(User_data_o, function (error) {
+                    if (error) alert(error);
+                    else {
+                        alert(" you are login");
+                        window.location = "index.html";
+                    }
+                });
                 console.log("upload");
 
                 const User_data = {
@@ -81,7 +87,7 @@ function GoogleLogin() {
 
             } else {
 
-                firebase.database().ref('users/' + user.uid).on('value', function (snapshot) {
+                firebase.database().ref('users/' + user.uid).on('value', function (snapshot, error) {
                     var User_data = {
                         uid: user.uid,
                         displayName: snapshot.val().displayName,
@@ -92,9 +98,14 @@ function GoogleLogin() {
                     // Store in loaclstorge client side
                     console.log(User_data);
                     localStorage.setItem('User_data', JSON.stringify(User_data));
+                    if (error) alert(error);
+                    else {
+                        alert(" you are login");
+                        window.location = "index.html";
+                    }
                 });
                 // send to chat page
-                alert("user logined")
+                //alert("user logined")
                 //window.location = "index.html";
             }
         }).catch((error) => {
