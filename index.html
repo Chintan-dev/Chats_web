@@ -117,7 +117,7 @@
                 </div>
             </div>
 
-            <div class="chats" id="chats">
+            <div class="chats" id="chats" style="right: 0%;">
                 <!-- background-image:url(./img/10.jpg);background-repeat: no-repeat;background-position: center; -->
                 <header id="header">
                     <div class="back" onclick="back_to_chats()">
@@ -139,34 +139,14 @@
                     </div>
                 </header>
                 <div class="user_chats" id="user_chats">
-                    <div class="chat-box scrollbox1 active">
-                        <div class="chat incoming">
-                            <img src="./img/1.jpg" class="incoming_img" alt="">
-                            <div class="details">
-                                <p>Hello 👋</p>
-                            </div>
-                        </div>
-                        <div class="chat outgoing">
-                            <div class="details">
-                                <p>Hiii brooo</p>
-                            </div>
-                        </div>
-                        <div class="chat outgoing">
-                            <div class="details">
-                                <p>tu pagal</p>
-                            </div>
-                        </div>
-                        <div class="chat outgoing">
-                            <div class="details">
-                                <p>20₹</p>
-                            </div>
-                        </div>
+                    <div class="chat-box scrollbox1 active" id="messages_display">
+
                     </div>
                     <div class="send_chats">
                         <input type="text" id="message" class="send_box" name="" id="">
                         <!-- <input type="submit" value=""> -->
                         <!-- <ion-icon name="paper-plane-outline" class="send_btn" onclick="send_msg()"> -->
-                        <div class="send_btn" onclick="send_msg()">send</div>
+                        <div class="send_btn" onclick="SendMessage()">send</div>
                     </div>
                 </div>
             </div>
@@ -338,3 +318,28 @@
             firebase init
             firebase deploy
     -->
+
+
+
+
+<!-- <div class="chat incoming">
+        <img src="./img/1.jpg" class="incoming_img" alt="">
+        <div class="details">
+            <p>Hello 👋</p>
+        </div>
+    </div>
+    <div class="chat outgoing">
+        <div class="details">
+            <p>Hiii brooo</p>
+        </div>
+    </div>
+    <div class="chat outgoing">
+        <div class="details">
+            <p>tu pagal</p>
+        </div>
+    </div>
+    <div class="chat outgoing">
+        <div class="details">
+            <p>20₹</p>
+        </div>
+    </div> -->

@@ -161,38 +161,35 @@ function LoadChatList() {
 }
 
 
-function send_msg() {
-     var message = document.getElementById('message').value;
-     alert(message + " " + uid);
-     document.getElementById('message').value = "";
-}
-
 function StartChat(friendKey, friendName, friendPhoto) {
      document.getElementById('chats').style = ``;
      document.getElementById('f_name').innerHTML = friendName;
      document.getElementById('f_img').src = friendPhoto;
 
-     // var friendList = { friend_id: friendKey, uid: currentUserKey };
-     // friend_id = friendKey;
+     var friendList = { friend_id: friendKey, uid: currentUserKey };
+     friend_id = friendKey;
  
-     // var db = firebase.database().ref('friend_list');
-     // var flag = false;
-     // db.on('value', function (friends) {
-     //     friends.forEach(function (data) {
-     //         var user = data.val();
-     //         if ((user.friend_id === friendList.friend_id && user.uid === friendList.uid) || ((user.friend_id === friendList.uid && user.uid === friendList.friend_id))) {
-     //             flag = true;
-     //             chatKey = data.key;
-     //             alert("done");
-     //         }
-     //     });
+     var db = firebase.database().ref('friend_list');
+     var flag = false;
+     db.on('value', function (friends) {
+         friends.forEach(function (data) {
+             var user = data.val();
+             if ((user.friend_id === friendList.friend_id && user.uid === friendList.uid) || ((user.friend_id === friendList.uid && user.uid === friendList.friend_id))) {
+                 flag = true;
+                 chatKey = data.key;
+                 console.log(chatKey);
+             }
+         });
      //     if (flag === false) {
      //           chatKey = firebase.database().ref('friend_list').push(friendList, function (error) {
+     //                alert("data push friend list ");
      //           if (error) alert(error);
      //           }).getKey();
+     //      }else{
+     //           alert(" not data push friend list ");
      //      }
-     //      LoadChatMessages(chatKey, friendPhoto);
-     //});
+     LoadChatMessages(chatKey, friendPhoto);
+     });
      document.getElementById('user_chats').style.visibility = "visible";
      document.getElementById('header').style.visibility = "visible";
      document.getElementById('chats').style.right = "0%";
@@ -207,82 +204,54 @@ function LoadChatMessages(chatKey, friendPhoto) {
              var dateTime = chat.dateTime.split(",");
              var msg = '';
              msg = chat.msg;
-          //    if (chat.msgType === 'image') {
-          //        msg = `<img src='${chat.msg}' class="img-fluid" />`;
-          //    }
-          //    else if (chat.msgType === 'audio') {
-          //        msg = `<audio controls>
-          //                <source src="${chat.msg}" type="video/webm" />
-          //            </audio>`;
-          //    }
-          //    else {
-          //        msg = chat.msg;
-          //    }
-             if (chat.userId !== currentUserKey) {
-                 messageDisplay += `<div class="row">
-                                     <div class="col-2 col-sm-1 col-md-1">
-                                         <img src="${friendPhoto}" class="chat-pic rounded-circle" />
-                                     </div>
-                                     <div class="col-6 col-sm-7 col-md-7">
-                                         <p class="receive">
-                                             ${msg}
-                                             <span class="time float-right" title="${dateTime[0]}">${dateTime[1]}</span>
-                                         </p>
-                                     </div>
-                                 </div>`;
+
+             if (chat.uid !== currentUserKey) {
+                 messageDisplay += `
+                    <div class="chat incoming">
+                         <img src="${friendPhoto}" class="incoming_img" alt="">
+                         <div class="details">
+                              <p>
+                              ${msg}
+                              <span class="chat_time" title="${dateTime[0]}">${dateTime[1]}</span>
+                              </p>
+                         </div>
+                    </div>
+                         `;
              }
              else {
-                 messageDisplay += `<div class="row justify-content-end">
-                             <div class="col-6 col-sm-7 col-md-7">
-                                 <p class="sent float-right">
-                                     ${msg}
-                                     <span class="time float-right" title="${dateTime[0]}">${dateTime[1]}</span>
-                                 </p>
-                             </div>
-                             <div class="col-2 col-sm-1 col-md-1">
-                                 <img src="${firebase.auth().currentUser.photoURL}" class="chat-pic rounded-circle" />
-                             </div>
-                         </div>`;
+                 messageDisplay += `
+                    <div class="chat outgoing">
+                         <div class="details">
+                              <p>
+                              ${msg}
+                              <span class="chat_time" title="${dateTime[0]}">${dateTime[1]}</span>
+                              </p>
+                         </div>
+                    </div>
+                    `;
              }
          });
  
-         document.getElementById('messages').innerHTML = messageDisplay;
-         document.getElementById('messages').scrollTo(0, document.getElementById('messages').scrollHeight);
+          document.getElementById('messages_display').innerHTML = messageDisplay;
+          //document.getElementById('messages').scrollTo(0, document.getElementById('messages').scrollHeight);
      });
 }
 
 function SendMessage() {
      var chatMessage = {
-         userId: currentUserKey,
-         msg: document.getElementById('txtMessage').value,
+         uid: currentUserKey,
+         msg: document.getElementById('message').value,
          msgType: 'normal',
          dateTime: new Date().toLocaleString()
      };
+     console.log(chatKey);
+     console.log(chatMessage);
+     document.getElementById('message').value = '';
  
      firebase.database().ref('chatMessages').child(chatKey).push(chatMessage, function (error) {
-         if (error) alert(error);
+          if (error) alert(error);
          else {
-             firebase.database().ref('fcmTokens').child(friend_id).once('value').then(function (data) {
-                 $.ajax({
-                     url: 'https://fcm.googleapis.com/fcm/send',
-                     method: 'POST',
-                     headers: {
-                         'Content-Type': 'application/json',
-                         'Authorization': 'key=AIzaSyBXkd3HN8IO3Xa4AFTvqFpo5LXZQ9-Rj7s'
-                     },
-                     data: JSON.stringify({
-                         'to': data.val().token_id, 'data': { 'message': chatMessage.msg.substring(0, 30) + '...', 'icon': firebase.auth().currentUser.photoURL }
-                     }),
-                     success: function (response) {
-                         console.log(response);
-                     },
-                     error: function (xhr, status, error) {
-                         console.log(xhr.error);
-                     }
-                 });
-             });
-             document.getElementById('txtMessage').value = '';
-             document.getElementById('txtMessage').focus();
+               console.log("done");
          }
      });
  }
