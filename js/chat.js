@@ -139,7 +139,7 @@ function LoadChatList() {
                     firebase.database().ref('users').child(friendKey).on('value', function (data) {
                          var user = data.val();
                          document.getElementById('listChat').innerHTML += `
-                              <div class="user_box " id="${friendKey}" onclick="clickme(this.id)">
+                              <div class="user_box " id="${friendKey}" onclick="StartChat('${data.key}', '${user.displayName}', '${user.photoURL}')">
                                    <div class="img_user">
                                              <img src="${user.photoURL}" alt="loading">
                                    </div>
@@ -161,73 +161,132 @@ function LoadChatList() {
 }
 
 
-// function StartChat(friendKey, friendName, friendPhoto) {
-//      var friendList = { friendId: friendKey, userId: currentUserKey };
-//      friend_id = friendKey;
-
-//      var db = firebase.database().ref('friend_list');
-//      var flag = false;
-//      db.on('value', function (friends) {
-//           friends.forEach(function (data) {
-//                var user = data.val();
-//                if ((user.friendId === friendList.friendId && user.userId === friendList.userId) || ((user.friendId === friendList.userId && user.userId === friendList.friendId))) {
-//                     flag = true;
-//                     chatKey = data.key;
-//                }
-//           });
-
-//           if (flag === false) {
-//                chatKey = firebase.database().ref('friend_list').push(friendList, function (error) {
-//                     if (error) alert(error);
-//                     else {
-//                          document.getElementById('chatPanel').removeAttribute('style');
-//                          document.getElementById('divStart').setAttribute('style', 'display:none');
-//                          hideChatList();
-//                     }
-//                }).getKey();
-//           }
-//           else {
-//                document.getElementById('chatPanel').removeAttribute('style');
-//                document.getElementById('divStart').setAttribute('style', 'display:none');
-//                hideChatList();
-//           }
-//           ///////////////////////////
-//           //display friend name and photo
-//           document.getElementById('divChatName').innerHTML = friendName;
-//           document.getElementById('imgChat').src = friendPhoto;
-
-//           document.getElementById('messages').innerHTML = '';
-
-//           document.getElementById('txtMessage').value = '';
-//           document.getElementById('txtMessage').focus();
-//           ////////////////////////////
-//           // Display The chat messages
-//           LoadChatMessages(chatKey, friendPhoto);
-//      });
-// }
-
-
 function send_msg() {
      var message = document.getElementById('message').value;
      alert(message + " " + uid);
      document.getElementById('message').value = "";
 }
 
-function clickme(chat_user_id) {
+function StartChat(friendKey, friendName, friendPhoto) {
      document.getElementById('chats').style = ``;
+     document.getElementById('f_name').innerHTML = friendName;
+     document.getElementById('f_img').src = friendPhoto;
 
-     firebase.database().ref('users').child(chat_user_id).on('value', function (data) {
-               var user = data.val();
-               console.log(user);
-               document.getElementById('f_name').innerHTML = user.displayName;
-               document.getElementById('f_img').src = user.photoURL;
-     });
-
-
+     // var friendList = { friend_id: friendKey, uid: currentUserKey };
+     // friend_id = friendKey;
+ 
+     // var db = firebase.database().ref('friend_list');
+     // var flag = false;
+     // db.on('value', function (friends) {
+     //     friends.forEach(function (data) {
+     //         var user = data.val();
+     //         if ((user.friend_id === friendList.friend_id && user.uid === friendList.uid) || ((user.friend_id === friendList.uid && user.uid === friendList.friend_id))) {
+     //             flag = true;
+     //             chatKey = data.key;
+     //             alert("done");
+     //         }
+     //     });
+     //     if (flag === false) {
+     //           chatKey = firebase.database().ref('friend_list').push(friendList, function (error) {
+     //           if (error) alert(error);
+     //           }).getKey();
+     //      }
+     //      LoadChatMessages(chatKey, friendPhoto);
+     //});
      document.getElementById('user_chats').style.visibility = "visible";
      document.getElementById('header').style.visibility = "visible";
      document.getElementById('chats').style.right = "0%";
 }
+
+function LoadChatMessages(chatKey, friendPhoto) {
+     var db = firebase.database().ref('chatMessages').child(chatKey);
+     db.on('value', function (chats) {
+         var messageDisplay = '';
+         chats.forEach(function (data) {
+             var chat = data.val();
+             var dateTime = chat.dateTime.split(",");
+             var msg = '';
+             msg = chat.msg;
+          //    if (chat.msgType === 'image') {
+          //        msg = `<img src='${chat.msg}' class="img-fluid" />`;
+          //    }
+          //    else if (chat.msgType === 'audio') {
+          //        msg = `<audio controls>
+          //                <source src="${chat.msg}" type="video/webm" />
+          //            </audio>`;
+          //    }
+          //    else {
+          //        msg = chat.msg;
+          //    }
+             if (chat.userId !== currentUserKey) {
+                 messageDisplay += `<div class="row">
+                                     <div class="col-2 col-sm-1 col-md-1">
+                                         <img src="${friendPhoto}" class="chat-pic rounded-circle" />
+                                     </div>
+                                     <div class="col-6 col-sm-7 col-md-7">
+                                         <p class="receive">
+                                             ${msg}
+                                             <span class="time float-right" title="${dateTime[0]}">${dateTime[1]}</span>
+                                         </p>
+                                     </div>
+                                 </div>`;
+             }
+             else {
+                 messageDisplay += `<div class="row justify-content-end">
+                             <div class="col-6 col-sm-7 col-md-7">
+                                 <p class="sent float-right">
+                                     ${msg}
+                                     <span class="time float-right" title="${dateTime[0]}">${dateTime[1]}</span>
+                                 </p>
+                             </div>
+                             <div class="col-2 col-sm-1 col-md-1">
+                                 <img src="${firebase.auth().currentUser.photoURL}" class="chat-pic rounded-circle" />
+                             </div>
+                         </div>`;
+             }
+         });
+ 
+         document.getElementById('messages').innerHTML = messageDisplay;
+         document.getElementById('messages').scrollTo(0, document.getElementById('messages').scrollHeight);
+     });
+}
+
+function SendMessage() {
+     var chatMessage = {
+         userId: currentUserKey,
+         msg: document.getElementById('txtMessage').value,
+         msgType: 'normal',
+         dateTime: new Date().toLocaleString()
+     };
+ 
+     firebase.database().ref('chatMessages').child(chatKey).push(chatMessage, function (error) {
+         if (error) alert(error);
+         else {
+             firebase.database().ref('fcmTokens').child(friend_id).once('value').then(function (data) {
+                 $.ajax({
+                     url: 'https://fcm.googleapis.com/fcm/send',
+                     method: 'POST',
+                     headers: {
+                         'Content-Type': 'application/json',
+                         'Authorization': 'key=AIzaSyBXkd3HN8IO3Xa4AFTvqFpo5LXZQ9-Rj7s'
+                     },
+                     data: JSON.stringify({
+                         'to': data.val().token_id, 'data': { 'message': chatMessage.msg.substring(0, 30) + '...', 'icon': firebase.auth().currentUser.photoURL }
+                     }),
+                     success: function (response) {
+                         console.log(response);
+                     },
+                     error: function (xhr, status, error) {
+                         console.log(xhr.error);
+                     }
+                 });
+             });
+             document.getElementById('txtMessage').value = '';
+             document.getElementById('txtMessage').focus();
+         }
+     });
+ }
+
 function back_to_chats() {
      document.getElementById('chats').style.right = "-102%";
 }

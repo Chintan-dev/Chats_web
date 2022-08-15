@@ -40,8 +40,6 @@ function search() {
             var childData = childSnapshot.val();
             console.log(childData);
             if (childData.email !== firebase.auth().currentUser.email) {
-
-                console.log(childData.displayName);
                 data = `<div class="users_info">
                             <div class="box_s">
                                 <div class="img_s">
@@ -62,7 +60,7 @@ function search() {
         loading(bol);
     });
 }
-search();
+//search();
 function loading(bol) {
     if (bol == true) {
         let val = 1;
