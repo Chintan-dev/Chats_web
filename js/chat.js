@@ -14,7 +14,6 @@ if (uid) {
      document.getElementById("user_img").src = photoURL;
      currentUserKey = uid;
      LoadChatList();
-     
 } else {
      //logout();
      window.location = "login.html";
