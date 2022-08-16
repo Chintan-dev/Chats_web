@@ -60,16 +60,6 @@ function GoogleLogin() {
                     email: user.email,
                     Username: Username
                 }
-                // add data in database with push() -> push can created uquny id
-                firebase.database().ref('users/' + user.uid).set(User_data_o, function (error) {
-                    if (error) alert(error);
-                    else {
-                        alert(" you are login");
-                        window.location = "index.html";
-                    }
-                });
-                console.log("upload");
-
                 const User_data = {
                     uid: user.uid,
                     displayName: user.displayName,
@@ -84,6 +74,18 @@ function GoogleLogin() {
                 // send to chat page
                 // alert("user logined")
                 //window.location = "index.html";
+
+                // add data in database with push() -> push can created uquny id
+                firebase.database().ref('users/' + user.uid).set(User_data_o, function (error) {
+                    if (error) alert(error);
+                    else {
+                        alert(" you are login");
+                        //window.location = "index.html";
+                        checked_uid();
+                    }
+                });
+                console.log("upload");
+
 
             } else {
 
@@ -101,7 +103,8 @@ function GoogleLogin() {
                     if (error) alert(error);
                     else {
                         alert(" you are login");
-                        window.location = "index.html";
+                        //window.location = "index.html";
+                        checked_uid();
                     }
                 });
                 // send to chat page
@@ -120,6 +123,7 @@ function GoogleLogin() {
             // ...
         });
 }
+
 function signup_form() {
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
