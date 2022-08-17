@@ -123,7 +123,7 @@
                         <ion-icon class="icon" class="arrow_back" name="arrow-back-outline">
                     </div>
                     <div class="user_chats_img">
-                        <img src="./img/profiles/5.webp" id="f_img" alt="">
+                        <img class="skeleton" src="./img/profiles/5.webp" id="f_img" alt="">
                     </div>
                     <div class="user_chat_name">
                         <div class="name_user" id="f_name">
@@ -235,7 +235,7 @@
     document.getElementById('storys_load').innerHTML += `
                     <div class="scroller-item">
                             <div class="item_img">
-                                    <img src="" id="user_img" alt="">
+                                    <img  src="" id="user_img" alt="">
                             </div>
                             <div class="item_name">
                                     you
@@ -256,42 +256,42 @@
         img++;
     }
 
-    let val1 = 1;
-    let users1 = 0;
-    while (val1 <= users1) {
-        if (val1 % 2 == 0) {
-            document.getElementById('get_data').innerHTML += `
-                <div  class="users_info" >
-                    <div class="box_s">
-                        <div class="img_s">
-                            <img src="./img/profiles/${val1}.webp" alt="404" id="photoURl" alt="">
-                        </div>
-                        <div class="username_s" id="displayName">
-                                user_${val1}
-                        </div>
-                    </div>
-                    <div class="s_btn" id="${val1}" onclick="msg_id_send_in_db(this.id)">
-                        <button>msg</button>
-                    </div>
-                </div >`;
-        } else {
-            document.getElementById('get_data').innerHTML += `
-                <div  class="users_info" >
-                    <div class="box_s">
-                        <div class="img_s">
-                            <img src="./img/profiles/${val1}.webp" alt="404" id="photoURl" alt="">
-                        </div>
-                        <div class="username_s" id="displayName">
-                                user_${val1}
-                        </div>
-                    </div>
-                    <div class="s_btn" id="${val1}" onclick="msg_id_send_in_db(this.id)">
-                        <button>connect</button>
-                    </div>
-                </div >`;
-        }
-        val1++;
-    }
+    // let val1 = 1;
+    // let users1 = 0;
+    // while (val1 <= users1) {
+    //     if (val1 % 2 == 0) {
+    //         document.getElementById('get_data').innerHTML += `
+    //             <div  class="users_info" >
+    //                 <div class="box_s">
+    //                     <div class="img_s">
+    //                         <img  src="./img/profiles/${val1}.webp" alt="404" id="photoURl" alt="">
+    //                     </div>
+    //                     <div class="username_s" id="displayName">
+    //                             user_${val1}
+    //                     </div>
+    //                 </div>
+    //                 <div class="s_btn" id="${val1}" onclick="msg_id_send_in_db(this.id)">
+    //                     <button>msg</button>
+    //                 </div>
+    //             </div >`;
+    //     } else {
+    //         document.getElementById('get_data').innerHTML += `
+    //             <div  class="users_info" >
+    //                 <div class="box_s">
+    //                     <div class="img_s">
+    //                         <img src="./img/profiles/${val1}.webp" alt="404" id="photoURl" alt="">
+    //                     </div>
+    //                     <div class="username_s" id="displayName">
+    //                             user_${val1}
+    //                     </div>
+    //                 </div>
+    //                 <div class="s_btn" id="${val1}" onclick="msg_id_send_in_db(this.id)">
+    //                     <button>connect</button>
+    //                 </div>
+    //             </div >`;
+    //     }
+    //     val1++;
+    //}
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>

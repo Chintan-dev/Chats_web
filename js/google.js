@@ -69,7 +69,7 @@ function GoogleLogin() {
                 }
                 // Store in loaclstorge client side
                 console.log(User_data);
-                localStorage.setItem('User_data', JSON.stringify(User_data));
+
 
                 // send to chat page
                 // alert("user logined")
@@ -77,6 +77,7 @@ function GoogleLogin() {
 
                 // add data in database with push() -> push can created uquny id
                 firebase.database().ref('users/' + user.uid).set(User_data_o, function (error) {
+                    localStorage.setItem('User_data', JSON.stringify(User_data));
                     if (error) alert(error);
                     else {
                         alert(" you are login");

@@ -27,6 +27,7 @@ window.onload = alertFunction;
 
 // get user data
 var bol = true;
+loading(bol);
 function search() {
     console.log("called: search");
     loading(bol);
@@ -35,6 +36,7 @@ function search() {
 
     starCountRef.once('value', (snapshot) => {
         document.getElementById('get_data').innerHTML = "";
+        // firebase.database().ref('friend_list').child(chatKey).on('value', function (list, error) { });
         snapshot.forEach((childSnapshot) => {
             var childKey = childSnapshot.key;
             var childData = childSnapshot.val();
@@ -49,8 +51,8 @@ function search() {
                                         ${childData.displayName}
                                 </div>
                             </div>
-                            <div class="s_btn" id="${childKey}" onclick="msg_id(this.id)">
-                                <button>message</button>
+                            <div class="s_btn" id="${childKey}" onclick="add_friend(this.id)">
+                                <button>conncet</button>
                             </div>
                         </div>`;
                 document.getElementById('get_data').innerHTML += data;
@@ -60,7 +62,7 @@ function search() {
         loading(bol);
     });
 }
-//search();
+search();
 function loading(bol) {
     if (bol == true) {
         let val = 1;
@@ -82,8 +84,8 @@ function loading(bol) {
         }
     }
 }
-
-function msg_id(friend_id) {
+var friend = false;
+function add_friend(friend_id) {
     const { uid } = JSON.parse(localStorage.getItem('User_data'));
 
     // firebase.database().ref('friend_list/').once('value', function (lists) {
@@ -91,16 +93,30 @@ function msg_id(friend_id) {
     //         var lst = data.val();
     //         console.log(lst);
     //         if ((lst.friendId === friend_id) || (lst.uid === friend_id)) {
-    //             alert("your friend");
+    //             alert("your old friend");
+    //             friend = true;
     //         } else {
+    //             friend = false;
     //             alert("new friend");
     //         }
     //     });
     // });
+    //if (friend == false) {
     firebase.database().ref('friend_list/').push({
         uid: uid,
         friend_id: friend_id
     });
-    console.log("success");
+    // console.log("success");
+    // } else {
+    //     document.getElementById(friend_id).innerHTML = `
+    //         <div class="s_btn" id="${childKey}" onclick="msg_id(this.id)">
+    //             <button>message</button>
+    //         </div>
+    //     `;
+    // }
+
 }
 
+function msg_id(friend_id) {
+    $(".cover, .pop-box").hide();
+}

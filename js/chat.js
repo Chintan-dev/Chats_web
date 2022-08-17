@@ -14,6 +14,7 @@ if (uid) {
      document.getElementById("user_img").src = photoURL;
      currentUserKey = uid;
      LoadChatList();
+     //search();
 } else {
      //logout();
      window.location = "login.html";
@@ -135,10 +136,10 @@ function LoadChatList() {
                }
 
                if (friendKey !== "") {
-                    firebase.database().ref('users').child(friendKey).on('value', function (data) {
+                    firebase.database().ref('users').child(friendKey).on('value', function (data,error) {
                          var user = data.val();
                          document.getElementById('listChat').innerHTML += `
-                              <div class="user_box " id="${friendKey}" onclick="StartChat('${data.key}', '${user.displayName}', '${user.photoURL}')">
+                              <div class="user_box" id="${friendKey}" onclick="StartChat('${data.key}', '${user.displayName}', '${user.photoURL}')">
                                    <div class="img_user">
                                              <img src="${user.photoURL}" alt="loading">
                                    </div>
@@ -150,12 +151,16 @@ function LoadChatList() {
                                              <div class="time">10:20pm</div>
                                    <div class="notification_no">20</div>
                               </div>`;
-                         console.log("data loaded");
+                         if(error) alert(error)
+                         else{
+                              bol=false;
+                              loading(bol);
+                              console.log("data loaded");
+                         }
                     });
                }
           });
-          bol=false;
-          loading(bol);
+          
      });
 }
 

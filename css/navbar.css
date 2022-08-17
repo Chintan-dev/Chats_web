@@ -240,28 +240,28 @@
          position: absolute;
          top: 50%;
          left: 50%;
-         transform: translate(-50%, -50%);
+         transform: translate(-60%, -50%);
 
      }
 
      .navigation ul li:nth-child(1).active~.indicator {
-         transform: translateX(calc(70px * 0));
+         transform: translateX(calc(58px * 0));
      }
 
      .navigation ul li:nth-child(2).active~.indicator {
-         transform: translateX(calc(70px * 1));
+         transform: translateX(calc(58px * 1));
      }
 
      .navigation ul li:nth-child(3).active~.indicator {
-         transform: translateX(calc(70px * 2));
+         transform: translateX(calc(58px * 2));
      }
 
      .navigation ul li:nth-child(4).active~.indicator {
-         transform: translateX(calc(70px * 3));
+         transform: translateX(calc(58px * 3));
      }
 
      .navigation ul li:nth-child(5).active~.indicator {
-         transform: translateX(calc(70px * 4));
+         transform: translateX(calc(58px * 4));
      }
 
      .navigation ul li:nth-child(1).active~.indicator::before {
