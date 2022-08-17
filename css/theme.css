@@ -624,6 +624,7 @@ span {
 }
 
 .scroller-item img {
+    overflow: hidden;
     border-radius: 50%;
 }
 
@@ -644,6 +645,7 @@ span {
 .s_btn>button:focus {
     background-color: rgba(254, 254, 254, 0.70);
 }
+
 
 
 
@@ -753,6 +755,7 @@ span {
         height: 60px;
         border: 4 px solid #151515;
         border-radius: 50%;
+        overflow: hidden;
     }
 
     .scroller-item>.item_img::before {
