@@ -133,10 +133,10 @@ function LoadChatList() {
                }
 
                if (friendKey !== "") {
+                    friend_count=1;
                     firebase.database().ref('users').child(friendKey).on('value', function (data,error) {
                          var user = data.val();
                          document.getElementById('listChat').style.display="block";
-                         friend_count++;
                          document.getElementById('listChat').innerHTML += `
                               <div class="user_box" id="${friendKey}" onclick="StartChat('${data.key}', '${user.displayName}', '${user.photoURL}')">
                                    <div class="img_user">

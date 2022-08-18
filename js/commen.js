@@ -39,6 +39,19 @@ function search() {
         document.getElementById('get_data').innerHTML = "";
 
         //firebase.database().ref('friend_list').child(chatKey).on('value', function (list, error) { });
+        // firebase.database().ref('friend_list').on('value', function (list, error) {
+        //     list.forEach((snapshot) => {
+        //         var friend_info = snapshot.val();
+        //         if ((friend_info.friendId === firebase.auth().currentUser.uid) || (friend_info.uid === firebase.auth().currentUser.uid)) {
+        //             console.log("your old friend");
+        //             friend = true;
+        //         }
+        //     });
+        //     if (error) alert(error)
+        //     else {
+
+        //     }
+        // });
 
         snapshot.forEach((childSnapshot) => {
             var childKey = childSnapshot.key;
@@ -49,19 +62,6 @@ function search() {
             console.log(childKey);
 
             if (childData.email !== firebase.auth().currentUser.email) {
-                firebase.database().ref('friend_list').on('value', function (list, error) {
-                    list.forEach((snapshot) => {
-                        var friend_info = snapshot.val();
-                        if ((friend_info.friendId === firebase.auth().currentUser.uid) || (friend_info.uid === firebase.auth().currentUser.uid)) {
-                            console.log("your old friend");
-                            friend = true;
-                        }
-                    });
-                    if (error) alert(error)
-                    else {
-
-                    }
-                });
                 if (friend == true) {
                     data = `<div class="users_info">
                     <div class="box_s"> 
