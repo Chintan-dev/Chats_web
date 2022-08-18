@@ -155,6 +155,6 @@ function add_friend(friend_id) {
 
 }
 
-// function msg_id(friend_id) {
-//     $(".cover, .pop-box").hide();
-// }
+function msg_id(friend_id) {
+    $(".cover, .pop-box").hide();
+}
