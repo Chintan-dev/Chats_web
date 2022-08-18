@@ -91,9 +91,6 @@ function onStateChanged(user) {
 
 
 
-
-
-
 function loading(bol) {
     if(bol== true){
      let val = 1;
@@ -138,6 +135,7 @@ function LoadChatList() {
                if (friendKey !== "") {
                     firebase.database().ref('users').child(friendKey).on('value', function (data,error) {
                          var user = data.val();
+                         document.getElementById('listChat').style.display="block";
                          document.getElementById('listChat').innerHTML += `
                               <div class="user_box" id="${friendKey}" onclick="StartChat('${data.key}', '${user.displayName}', '${user.photoURL}')">
                                    <div class="img_user">
@@ -160,6 +158,15 @@ function LoadChatList() {
                     });
                }
           });
+          if(friendKey==""){
+               document.getElementById('listChat').innerHTML += `
+               <div class="no_friend">
+                   <p>No friend yet </p><br>
+                   <h5>search friends </h5>
+               </div>
+               `;
+               document.getElementById('listChat').style.display = "flex";
+          }
           
      });
 }
@@ -181,6 +188,7 @@ function StartChat(friendKey, friendName, friendPhoto) {
              if ((user.friend_id === friendList.friend_id && user.uid === friendList.uid) || ((user.friend_id === friendList.uid && user.uid === friendList.friend_id))) {
                  flag = true;
                  chatKey = data.key;
+                 console.log("chatkey");
                  console.log(chatKey);
              }
          });

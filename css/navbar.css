@@ -9,10 +9,10 @@
 
 
 
-
-
-
-
+ * {
+     font-family: 'Poppins', sans-serif;
+     scroll-behavior: smooth;
+ }
 
  /* for pc css */
 

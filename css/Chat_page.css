@@ -1,3 +1,8 @@
+* {
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
 article {
     display: flex;
     /* max-height: 630px; */
@@ -56,6 +61,8 @@ article {
 }
 
 .scrollbox {
+    justify-content: center;
+    align-items: center;
     /* margin: 10px 10px 0 0; */
     overflow-y: auto;
     scroll-behavior: smooth;
@@ -194,6 +201,7 @@ article {
     flex-wrap: wrap;
     right: 0%;
     align-items: stretch;
+    max-width: 40rem;
 }
 
 .chat_time {
@@ -408,8 +416,16 @@ article {
     display: flex;
 }
 
+.name_user {
+    font-weight: bolder;
+}
 
-
+.no_friend {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 
 
 
