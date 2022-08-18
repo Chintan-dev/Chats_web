@@ -30,29 +30,13 @@ var bol = true;
 var friend = false;
 loading(bol);
 function search() {
-    console.log("called: search");
-    loading(bol);
+    console.log("running: search");
+    // firebase.database().ref('friend_list').child(chatKey).on('value', function (list, error) { });
+
 
     var starCountRef = firebase.database().ref('users');
-
     starCountRef.once('value', (snapshot) => {
         document.getElementById('get_data').innerHTML = "";
-
-        //firebase.database().ref('friend_list').child(chatKey).on('value', function (list, error) { });
-        // firebase.database().ref('friend_list').on('value', function (list, error) {
-        //     list.forEach((snapshot) => {
-        //         var friend_info = snapshot.val();
-        //         if ((friend_info.friendId === firebase.auth().currentUser.uid) || (friend_info.uid === firebase.auth().currentUser.uid)) {
-        //             console.log("your old friend");
-        //             friend = true;
-        //         }
-        //     });
-        //     if (error) alert(error)
-        //     else {
-
-        //     }
-        // });
-
         snapshot.forEach((childSnapshot) => {
             var childKey = childSnapshot.key;
             var childData = childSnapshot.val();
@@ -62,24 +46,45 @@ function search() {
             console.log(childKey);
 
             if (childData.email !== firebase.auth().currentUser.email) {
-                if (friend == true) {
-                    data = `<div class="users_info">
+                // firebase.database().ref('friend_list').once('value', function (lists) {
+                //     lists.forEach(function (data) {
+                //         var lst = data.val();
+                //         console.log(lst);
+                //         if ((lst.uid === childKey) && (lst.friend_id === uid) || (lst.friend_id === childKey) && (lst.uid === uid)) {
+                //             data = `<div class="users_info">
+                //                         <div class="box_s"> 
+                //                             <div class="img_s">
+                //                                 <img src="${childData.photoURL}" id="photoURl" alt="">
+                //                             </div>
+                //                             <div class="username_s" id="displayName">
+                //                                     ${childData.displayName}
+                //                             </div>
+                //                         </div>
+                //                         <div class="s_btn" id="${childKey}" onclick="msg_id(this.id)">
+                //                             <button>message</button>
+                //                         </div>
+                //                     </div>`;
+                //             document.getElementById('get_data').innerHTML += data;
+                //         } else {
+                //             data = `<div class="users_info">
+                //                         <div class="box_s"> 
+                //                             <div class="img_s">
+                //                                 <img src="${childData.photoURL}" id="photoURl" alt="">
+                //                             </div>
+                //                             <div class="username_s" id="displayName">
+                //                                     ${childData.displayName}
+                //                             </div>
+                //                         </div>
+                //                         <div class="s_btn" id="${childKey}" onclick="add_friend(this.id)">
+                //                             <button>conncet</button>
+                //                         </div>
+                //                     </div>`;
+                //             document.getElementById('get_data').innerHTML += data;
+                //         }
+                //     });
+                // });
+                data = `<div class="users_info">
                     <div class="box_s"> 
-                        <div class="img_s">
-                            <img src="${childData.photoURL}" id="photoURl" alt="">
-                        </div>
-                        <div class="username_s" id="displayName">
-                                ${childData.displayName}
-                        </div>
-                    </div>
-                    <div class="s_btn" id="${childKey}" onclick="msg_id(this.id)">
-                      <button>message</button>
-                    </div>
-                </div>`;
-                    document.getElementById('get_data').innerHTML += data;
-                } else {
-                    data = `<div class="users_info">
-                    <div class="box_s">
                         <div class="img_s">
                             <img src="${childData.photoURL}" id="photoURl" alt="">
                         </div>
@@ -91,8 +96,7 @@ function search() {
                         <button>conncet</button>
                     </div>
                 </div>`;
-                    document.getElementById('get_data').innerHTML += data;
-                }
+                document.getElementById('get_data').innerHTML += data;
             }
         });
         const bol = false;
@@ -125,36 +129,46 @@ function loading(bol) {
 function add_friend(friend_id) {
     const { uid } = JSON.parse(localStorage.getItem('User_data'));
 
-    // firebase.database().ref('friend_list/').once('value', function (lists) {
-    //     lists.forEach(function (data) {
-    //         var lst = data.val();
-    //         console.log(lst);
-    //         if ((lst.friendId === friend_id) || (lst.uid === friend_id)) {
-    //             alert("your old friend");
-    //             friend = true;
-    //         } else {
-    //             friend = false;
-    //             alert("new friend");
-    //         }
-    //     });
-    // });
-    // if (friend == false) {
-    firebase.database().ref('friend_list/').push({
-        uid: uid,
-        friend_id: friend_id
+    firebase.database().ref('friend_list').once('value', function (lists) {
+        var found = 0;
+        lists.forEach(function (data) {
+            var lst = data.val();
+            //console.log(lst);
+            if ((lst.uid === friend_id) && (lst.friend_id === uid) || (lst.friend_id === friend_id) && (lst.uid === uid)) {
+                //alert("found")
+                found = 1;
+            }
+        });
+        if (found !== 1) {
+            firebase.database().ref('friend_list/').push({
+                uid: uid,
+                friend_id: friend_id
+            });
+        } else {
+            $(function () {
+                $(".cover, .pop-box").hide();
+            });
+        }
     });
-    $(".cover, .pop-box").hide();
-    console.log("success");
+    // if (friend == false) {
+    //     alert("new friend");
     // } else {
-    //     document.getElementById(friend_id).innerHTML = `
-    //             <div class="s_btn" id="${childKey}" onclick="msg_id(this.id)">
-    //                 <button>message</button>
-    //             </div>
-    //         `;
-    //}
+    //     alert("your old friend");
+    // }
 
+    // firebase.database().ref('friend_list/').push({
+    //     uid: uid,
+    //     friend_id: friend_id
+    // });
+    // console.log("success");
+
+    // $(function () {
+    //         $(".cover, .pop-box").hide();
+    // });
 }
 
 function msg_id(friend_id) {
-    $(".cover, .pop-box").hide();
+    $(function () {
+        $(".cover, .pop-box").hide();
+    });
 }

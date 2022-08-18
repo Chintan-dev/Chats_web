@@ -112,7 +112,7 @@ function loading(bol) {
 }
 // window.onload = loading();
 
-var friend_count=0;
+var friend_count=false;
 function LoadChatList() {
      console.log("callded:- LoadChatList");
      // .onload = loading();
@@ -133,7 +133,7 @@ function LoadChatList() {
                }
 
                if (friendKey !== "") {
-                    friend_count=1;
+                    friend_count=true;
                     firebase.database().ref('users').child(friendKey).on('value', function (data,error) {
                          var user = data.val();
                          document.getElementById('listChat').style.display="block";
@@ -159,7 +159,7 @@ function LoadChatList() {
                     });
                }
           });
-          if(friend_count==0){
+          if(friend_count==false){
                document.getElementById('listChat').innerHTML += `
                <div class="no_friend">
                    <p>No friend yet </p><br>

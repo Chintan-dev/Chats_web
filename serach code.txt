@@ -1,0 +1,26 @@
+console.log(firebase.auth().currentUser.uid);
+var db = firebase.database().ref('friend_list');
+    db.on('value', function (lists) {
+         lists.forEach(function (data) {
+             // var listchat_key=data.key;
+              //console.log(data.key);
+              var lst = data.val(); 
+              console.log(lst);
+              var friendKey = '';
+              if (lst.friend_id === currentUserKey) {
+                   friendKey = lst.uid;
+              }
+              else if (lst.uid === currentUserKey) {
+                   friendKey = lst.friend_id;
+              }
+
+              if (friendKey !== "") {
+                   friend_count=true;
+                   firebase.database().ref('users').child(friendKey).on('value', function (data,error) {
+                        var user = data.val();
+                        console.log(user);
+                        if(error) alert(error)
+                   });
+              }
+         });
+    });
