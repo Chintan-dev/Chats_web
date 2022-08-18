@@ -202,6 +202,7 @@ article {
     right: 0%;
     align-items: stretch;
     max-width: 40rem;
+    min-width: 40rem;
 }
 
 .chat_time {

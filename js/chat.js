@@ -112,7 +112,7 @@ function loading(bol) {
 }
 // window.onload = loading();
 
-
+var friend_count=0;
 function LoadChatList() {
      console.log("callded:- LoadChatList");
      // .onload = loading();
@@ -136,6 +136,7 @@ function LoadChatList() {
                     firebase.database().ref('users').child(friendKey).on('value', function (data,error) {
                          var user = data.val();
                          document.getElementById('listChat').style.display="block";
+                         friend_count++;
                          document.getElementById('listChat').innerHTML += `
                               <div class="user_box" id="${friendKey}" onclick="StartChat('${data.key}', '${user.displayName}', '${user.photoURL}')">
                                    <div class="img_user">
@@ -158,7 +159,7 @@ function LoadChatList() {
                     });
                }
           });
-          if(friendKey==""){
+          if(friend_count==0){
                document.getElementById('listChat').innerHTML += `
                <div class="no_friend">
                    <p>No friend yet </p><br>

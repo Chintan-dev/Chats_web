@@ -62,7 +62,7 @@ function search() {
 
                     }
                 });
-                if (friend !== true) {
+                if (friend == true) {
                     data = `<div class="users_info">
                     <div class="box_s"> 
                         <div class="img_s">
