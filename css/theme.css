@@ -5,7 +5,8 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
-    font-family: 'Poppins', sans-serif;
+    /* font-family: 'Poppins', sans-serif; */
+    font-family: system-ui;
     scroll-behavior: smooth;
 }
 
@@ -281,7 +282,7 @@ span {
     padding: 7px;
     background-color: var(--main-box-color);
     border-radius: 20px;
-    margin: 10px 10%;
+    margin: 10px 2%;
 }
 
 .box_s {
@@ -663,6 +664,7 @@ span {
 
     .username_s {
         width: 5rem;
+        font-size: inherit;
     }
 
     /* .form>header, */
