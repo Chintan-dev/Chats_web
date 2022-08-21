@@ -144,27 +144,15 @@ function add_friend(friend_id) {
                 uid: uid,
                 friend_id: friend_id
             });
+            $(function () {
+                $(".cover, .pop-box").hide();
+            });
         } else {
             $(function () {
                 $(".cover, .pop-box").hide();
             });
         }
     });
-    // if (friend == false) {
-    //     alert("new friend");
-    // } else {
-    //     alert("your old friend");
-    // }
-
-    // firebase.database().ref('friend_list/').push({
-    //     uid: uid,
-    //     friend_id: friend_id
-    // });
-    // console.log("success");
-
-    // $(function () {
-    //         $(".cover, .pop-box").hide();
-    // });
 }
 
 function msg_id(friend_id) {
