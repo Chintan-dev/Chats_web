@@ -126,22 +126,23 @@ function GoogleLogin() {
 }
 
 function signup_form() {
-    var email = document.getElementById("email").value;
-    var password = document.getElementById("password").value;
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-            // Signed in 
-            var user = userCredential.user;
-            // ...
-            alert("done");
-        })
-        .catch((error) => {
-            var errorCode = error.code;
-            alert(errorCode);
-            var errorMessage = error.message;
-            alert(errorMessage);
-            // ..
-        });
+    alert("Server error try in Google with signup");
+    // var email = document.getElementById("email").value;
+    // var password = document.getElementById("password").value;
+    // firebase.auth().createUserWithEmailAndPassword(email, password)
+    //     .then((userCredential) => {
+    //         // Signed in 
+    //         var user = userCredential.user;
+    //         // ...
+    //         alert("done");
+    //     })
+    //     .catch((error) => {
+    //         var errorCode = error.code;
+    //         alert(errorCode);
+    //         var errorMessage = error.message;
+    //         alert(errorMessage);
+    //         // ..
+    //     });
 }
 
 
@@ -209,8 +210,12 @@ function signup_form_qwifubqifb() {
     //     alert("password does not matches");
     // }
 }
+function loginUser_bug() {
+    alert("Server error try in Google with login");
+}
 
-function loginUser() {
+
+function loginUser_bug() {
     var email = document.getElementById("user_name").value;
     var password = document.getElementById("password_login").value;
 
