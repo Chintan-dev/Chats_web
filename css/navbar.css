@@ -83,7 +83,7 @@
      font-size: 20px;
  }
 
- .navigation ul li a .title {
+ .navigation ul li .title {
      position: absolute;
      top: 0px;
      left: -50%;
@@ -91,6 +91,7 @@
      width: auto;
      display: flex;
      background: #fff;
+     color: var(--color);
      padding: 5px 10px;
      border-radius: 7px;
      transition: 0.5s;
@@ -99,13 +100,13 @@
      visibility: hidden;
  }
 
- .navigation ul li:hover a .title {
+ .navigation ul li:hover .title {
      opacity: 1;
      visibility: visible;
      transform: translate(-90%, 0%);
  }
 
- .navigation ul li a .title::before {
+ .navigation ul li .title::before {
      content: "";
      position: absolute;
      width: 12px;
@@ -201,7 +202,7 @@
          height: 70px;
      }
 
-     .navigation ul li a .title {
+     .navigation ul li .title {
          position: absolute;
          top: -70px;
          left: 50%;
@@ -216,12 +217,12 @@
          visibility: hidden;
      }
 
-     .navigation ul li:hover a .title {
+     .navigation ul li:hover .title {
          opacity: 0;
          visibility: hidden;
      }
 
-     .navigation ul li a .title::before {
+     .navigation ul li .title::before {
          top: 95%;
          left: 48%;
          transform: rotate(45deg) translateX(-50%);

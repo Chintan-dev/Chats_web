@@ -121,7 +121,7 @@ article {
     margin: 10px 0;
     padding: 10px;
     cursor: pointer;
-    border-bottom: 0.5px var(--main-text) solid;
+    /* border-bottom: 0.5px var(--main-text) solid; */
     flex-direction: row;
     align-items: center;
     flex-wrap: nowrap;
